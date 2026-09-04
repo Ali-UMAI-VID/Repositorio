@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://ckfh2h50qtpdt" path="res://Escenas/Estado de niveles/ganaste.gd" id="1_4kkfn"]
 [ext_resource type="Texture2D" uid="uid://byh8dyincwnsu" path="res://Assets/Interfaz/Fondo/Fondo GANASTE sin score.png" id="1_xkhw2"]
-;[ext_resource type="PackedScene" uid="uid://sfpywx01bdqc" path="res://Escenas/Estado de niveles/skins.tscn" id="2_cj6q3"]
 [ext_resource type="Texture2D" uid="uid://d1h6bbir48wgf" path="res://Assets/Interfaz/botones/RENAUDAR NO.png" id="2_e5ve4"]
 [ext_resource type="Texture2D" uid="uid://cuypqgwkthe3j" path="res://Assets/Interfaz/botones/RENAUDAR SI.png" id="3_l45wv"]
-;[ext_resource type="PackedScene" uid="uid://sfpywx01bdqc" path="res://Escenas/Estado de niveles/skins.tscn" id="3_oglql"]
 [ext_resource type="Texture2D" uid="uid://dk2hq5crcprly" path="res://Assets/Interfaz/botones/VOLVER NO.png" id="4_0f3dl"]
 [ext_resource type="Texture2D" uid="uid://dimruaby31jv" path="res://Assets/Interfaz/botones/VOLVER SI.png" id="5_g3si4"]
 [ext_resource type="Texture2D" uid="uid://d0qbqki6l2pv0" path="res://Assets/Interfaz/botones/OPCIONES no.png" id="6_wb7pl"]
@@ -83,8 +81,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4kkfn")
 sonido_boton = NodePath("EfectoBoton")
-;escena_menu = ExtResource("2_cj6q3")
-;escena_nivel = ExtResource("3_oglql")
+escena_menu_path = "res://Escenas/Estado de niveles/menu.tscn"
+escena_nivel_path = "res://Escenas/Estado de niveles/Nivel.tscn"
 PosJugador = NodePath("PosicionJugador")
 BotonRenaudar = NodePath("RENAUDAR")
 BotonMenu = NodePath("VOLVERALMENU")

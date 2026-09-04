@@ -4,8 +4,8 @@ extends Control
 @export var sonido_boton: AudioStreamPlayer2D
 @export_file_path("*.tscn") var escena_menu_path : String
 @export_file_path("*.tscn") var escena_nivel_path : String
-@onready var escena_menu : PackedScene = load(escena_menu_path)
-@onready var escena_nivel : PackedScene = load(escena_nivel_path)
+#@onready var escena_menu : PackedScene = load(escena_menu_path)
+#@onready var escena_nivel : PackedScene = load(escena_nivel_path)
 @export var PosJugador : TextureRect
 
 @export var BotonRenaudar : AnimatedSprite2D
@@ -25,7 +25,7 @@ func _process(delta):
 			Globales.vidas = 3
 			Globales.score = 60
 			sonido_boton.play()
-			get_tree().change_scene_to_packed(escena_nivel)
+			get_tree().change_scene_to_file(escena_nivel_path)
 	if PosJugador.position.y == 619.5:
 		BotonRenaudar.frame = 0
 		BotonMenu.frame = 1
@@ -36,7 +36,7 @@ func _process(delta):
 			Globales.score = 60
 			#Globales.nivel = 0
 			sonido_boton.play()
-			await get_tree().change_scene_to_packed(escena_menu)
+			await get_tree().change_scene_to_file(escena_menu_path)
 	if PosJugador.position.y == 747:
 		BotonRenaudar.frame = 0
 		BotonMenu.frame = 0

@@ -1,12 +1,12 @@
 extends Control
 
-#@export var escena_nivel: PackedScene
+#@export_file_path("*.tscn") var escena_nivel_path : String
 @export var PosJugador : Sprite2D
 
 @export var sonido_boton : AudioStreamPlayer2D
 @export var skin_default : AnimatedSprite2D
 @export var boton_volver : AnimatedSprite2D
-#@export var escena_menu : PackedScene
+@export_file_path("*.tscn") var escena_menu_path : String
 
 
 
@@ -46,7 +46,7 @@ func _physics_process(delta):
 		boton_volver.frame =1
 		if Input.is_action_pressed("Espacio"):
 			sonido_boton.play()
-			#get_tree().change_scene_to_packed(escena_menu)
+			get_tree().change_scene_to_file(escena_menu_path)
 	else:	boton_volver.frame = 0
 
 	PosJugador.position.x = clamp(PosJugador.position.x,600,1345)#426c795

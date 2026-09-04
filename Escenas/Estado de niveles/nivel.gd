@@ -1,6 +1,8 @@
 extends Node2D
 #@export var escena_perdiste : PackedScene
 #@export var escena_ganaste : PackedScene
+@export_file_path("*.tscn") var escena_perdiste_path : String
+@export_file_path("*.tscn") var escena_ganaste_path : String
 
 func _on_area_muerte_body_entered(body):
 	if body is Enemigo:
@@ -11,7 +13,6 @@ func _process(delta):
 	Globales.timer -= delta
 	if Globales.timer <= 0:
 		print("xd")
-		#get_tree().change_scene_to_packed(escena_ganaste)
+		get_tree().change_scene_to_file(escena_ganaste_path)
 	if Globales.vidas <= 0:
-		pass
-		#get_tree().change_scene_to_packed(escena_perdiste)
+		get_tree().change_scene_to_file(escena_perdiste_path)

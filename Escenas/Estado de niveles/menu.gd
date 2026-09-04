@@ -1,11 +1,11 @@
 extends Control
 
-@export_file var escena_skin: String
+#@export_file var escena_skin: String
 @export var sonido_boton: AudioStreamPlayer2D
 @export_file_path("*.tscn") var escena_skins_path : String
 @export_file_path("*.tscn") var escena_nivel_path : String
-@onready var escena_menu : PackedScene = load(escena_skins_path)
-@onready var escena_nivel : PackedScene = load(escena_nivel_path)
+#@onready var escena_menu : PackedScene = load(escena_skins_path)
+#@onready var escena_nivel : PackedScene = load(escena_nivel_path)
 @export var PosJugador : TextureRect
 
 @export var BotonJugar : AnimatedSprite2D
@@ -21,7 +21,7 @@ func _process(delta):
 		BotonSalir.frame = 0
 		if 	Input.is_action_pressed("Espacio"):
 			sonido_boton.play()
-			get_tree().change_scene_to_packed(escena_nivel)
+			get_tree().change_scene_to_file(escena_nivel_path)
 	if PosJugador.position.y == 664.5:
 		BotonJugar.frame = 0
 		BotonTienda.frame = 1
@@ -29,7 +29,7 @@ func _process(delta):
 		BotonSalir.frame = 0
 		if 	Input.is_action_pressed("Espacio"):
 			sonido_boton.play()
-			await get_tree().change_scene_to_file(escena_skin)
+			await get_tree().change_scene_to_file(escena_skins_path)
 	if PosJugador.position.y == 803:
 		BotonJugar.frame = 0
 		BotonTienda.frame = 0

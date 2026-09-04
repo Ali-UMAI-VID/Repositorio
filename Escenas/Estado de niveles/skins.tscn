@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://sfpywx01bdqc"]
 
 [ext_resource type="Script" uid="uid://gpy44q3h16yo" path="res://Escenas/Estado de niveles/skins.gd" id="1_l4al5"]
-[ext_resource type="PackedScene" uid="uid://cj3xqtte02ph8" path="res://Escenas/Estado de niveles/ganaste.tscn" id="2_krvy6"]
 [ext_resource type="Texture2D" uid="uid://b03g0p7ftihhv" path="res://Assets/Boca/Fondo de skins  sin nada.png" id="3_tod2a"]
-[ext_resource type="PackedScene" uid="uid://cj3xqtte02ph8" path="res://Escenas/Estado de niveles/ganaste.tscn" id="3_vq6pa"]
 [ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="4_epg0g"]
 [ext_resource type="AudioStream" uid="uid://c11quyq68bhrs" path="res://Sonidos/Efectos/Interfaz/boton(PersonajeElegido).wav" id="5_tod2a"]
 [ext_resource type="Texture2D" uid="uid://b1p3r6fdkjymd" path="res://Assets/Boca/skin default.png" id="7_fbe4y"]
@@ -48,12 +46,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4al5")
-escena_nivel = ExtResource("2_krvy6")
 PosJugador = NodePath("PosicionJugador")
 sonido_boton = NodePath("AudioStreamPlayer2D")
 skin_default = NodePath("Skin_default")
 boton_volver = NodePath("BotonVolver")
-escena_menu = ExtResource("3_vq6pa")
+escena_menu_path = "res://Escenas/Estado de niveles/menu.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1593142762]
 layout_mode = 0

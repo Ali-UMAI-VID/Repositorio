@@ -2,12 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cw56ipl8tgpw5" path="res://Escenas/Estado de niveles/nivel.gd" id="1_of526"]
 [ext_resource type="PackedScene" uid="uid://bkey2tnhjgvi0" path="res://Escenas/jugador.tscn" id="2_ctkg4"]
-[ext_resource type="PackedScene" uid="uid://sfpywx01bdqc" path="res://Escenas/Estado de niveles/skins.tscn" id="2_n15ev"]
 [ext_resource type="Texture2D" uid="uid://c25axgv6eoqsg" path="res://Assets/Interfaz/Fondo/Fondo de nivel 1.png" id="2_rqg6q"]
 [ext_resource type="Texture2D" uid="uid://brsm38e1g1g5d" path="res://Assets/Interfaz/Fondo/Fondo de nivel 2.png" id="3_cewml"]
 [ext_resource type="PackedScene" uid="uid://6mfrct2khwgp" path="res://Escenas/Objetos/Positivos/Micro.tscn" id="3_e1c7d"]
 [ext_resource type="Script" uid="uid://pqpth5f8rtmx" path="res://Escenas/score_txt.gd" id="3_hxvt1"]
-[ext_resource type="PackedScene" uid="uid://gyc2w8uencj0" path="res://Escenas/Estado de niveles/perdiste.tscn" id="3_otbvg"]
 [ext_resource type="Script" uid="uid://44netdbpfh0i" path="res://Escenas/timer_txt.gd" id="4_s50yn"]
 [ext_resource type="Texture2D" uid="uid://djpwed0ukq4r7" path="res://Assets/Interfaz/Interfaz de usuario.png" id="4_ut45a"]
 [ext_resource type="PackedScene" uid="uid://dgj8an7are67i" path="res://Escenas/vidas.tscn" id="5_0b4ry"]
@@ -53,8 +51,8 @@ size = Vector2(1111, 62.5)
 
 [node name="Nivel" type="Node2D" unique_id=582695337]
 script = ExtResource("1_of526")
-escena_perdiste = ExtResource("2_n15ev")
-escena_ganaste = ExtResource("3_otbvg")
+escena_perdiste_path = "res://Escenas/Estado de niveles/perdiste.tscn"
+escena_ganaste_path = "res://Escenas/Estado de niveles/ganaste.tscn"
 
 [node name="Fondo" type="CanvasLayer" parent="." unique_id=2020750910]
 
