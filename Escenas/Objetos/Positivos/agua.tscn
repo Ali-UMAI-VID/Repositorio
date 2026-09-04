@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dpwbpx2qs5fp1"]
+
+[ext_resource type="Texture2D" uid="uid://e1ow7oothnhe" path="res://Assets/Objetos/botella pixel art.png" id="1_dqyyp"]
+[ext_resource type="Script" uid="uid://6erf3sb4lr07" path="res://Escenas/Objetos/Positivos/agua.gd" id="1_eugl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eugl0"]
+size = Vector2(37, 72)
+
+[node name="Agua" type="Area2D" unique_id=1418312346]
+script = ExtResource("1_eugl0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780720056]
+position = Vector2(0, -51)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dqyyp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=567106293]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_eugl0")

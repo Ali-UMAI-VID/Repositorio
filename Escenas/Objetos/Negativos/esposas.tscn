@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d02stx26n8evi"]
+
+[ext_resource type="Script" uid="uid://bh0ae2xgy8i1m" path="res://Escenas/Objetos/Negativos/-velo.gd" id="1_jyg4c"]
+[ext_resource type="Texture2D" uid="uid://fq2t4iwjbh6x" path="res://Assets/Objetos/esposas pixel art.png" id="1_usse3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uw7u7"]
+size = Vector2(94, 43)
+
+[node name="-veloEscena" type="Area2D" unique_id=921655642 node_paths=PackedStringArray("menos_velo")]
+script = ExtResource("1_jyg4c")
+menos_velo = NodePath("Timer-velo")
+
+[node name="Timer-velo" type="Timer" parent="." unique_id=1525827021]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=258593919]
+position = Vector2(-3, -41.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_usse3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=301287424]
+position = Vector2(-3, -22.25)
+shape = SubResource("RectangleShape2D_uw7u7")
+
+[connection signal="timeout" from="Timer-velo" to="." method="_on_timer_maria_timeout"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c120k7oxkysx6"
+path="res://.godot/imported/Jumpin (Nivel 2) .mp3-02d58789cdf4237d7e5df0221ea809c1.mp3str"
+
+[deps]
+
+source_file="res://Sonidos/Musica/Jumpin (Nivel 2) .mp3"
+dest_files=["res://.godot/imported/Jumpin (Nivel 2) .mp3-02d58789cdf4237d7e5df0221ea809c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

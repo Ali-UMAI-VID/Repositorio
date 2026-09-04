@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cd2l5b6s68q7u"]
+
+[ext_resource type="Script" uid="uid://bm888kssi2mw4" path="res://Escenas/Objetos/Negativos/porra.gd" id="1_saqd8"]
+[ext_resource type="Texture2D" uid="uid://1uif747hh4x4" path="res://Assets/Objetos/Porra.png" id="2_uk001"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq16u"]
+size = Vector2(147.0782, 25.455845)
+
+[node name="Porra" type="Area2D" unique_id=318324965]
+script = ExtResource("1_saqd8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1348352969]
+position = Vector2(0, -32)
+texture = ExtResource("2_uk001")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553999859]
+position = Vector2(0.5000062, -32.5)
+rotation = -0.7853982
+shape = SubResource("RectangleShape2D_vq16u")

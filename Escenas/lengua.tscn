@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jci2jut7ucyl"]
+
+[ext_resource type="Texture2D" uid="uid://ui4d5ewx4k2h" path="res://Assets/Objetos/lengua.png" id="1_3kkiw"]
+[ext_resource type="Script" uid="uid://33nv172dudec" path="res://Escenas/lengua.gd" id="1_28lgi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_28lgi"]
+radius = 115.0
+height = 272.0
+
+[node name="Lengua" type="Area2D" unique_id=250758916]
+script = ExtResource("1_28lgi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126121706]
+position = Vector2(0, -185)
+rotation = -2.693043
+texture = ExtResource("1_3kkiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1552809370]
+position = Vector2(-28, -253)
+shape = SubResource("CapsuleShape2D_28lgi")

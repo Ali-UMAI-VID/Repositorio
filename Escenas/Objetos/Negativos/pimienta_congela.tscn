@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bu7rs1ug43q42"]
+
+[ext_resource type="Script" uid="uid://brbr22egj8sfm" path="res://Escenas/Objetos/Negativos/pimienta_congela.tscn.gd" id="1_7v437"]
+[ext_resource type="Texture2D" uid="uid://brpltbuk2vtqt" path="res://Assets/Objetos/gas pimienta pixel art.png" id="2_ke77n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyg4c"]
+size = Vector2(56, 113.5)
+
+[node name="Pimienta_congela" type="Area2D" unique_id=427338619 node_paths=PackedStringArray("Timeresposas")]
+script = ExtResource("1_7v437")
+Timeresposas = NodePath("CongeladoTimer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=128393919]
+position = Vector2(0, -59)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ke77n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=141309711]
+position = Vector2(0, -58.25)
+shape = SubResource("RectangleShape2D_jyg4c")
+
+[node name="CongeladoTimer" type="Timer" parent="." unique_id=687160158]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="CongeladoTimer" to="." method="_on_congelado_timer_timeout"]

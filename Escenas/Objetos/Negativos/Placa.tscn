@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://daox7cx03xwwd"]
+
+[ext_resource type="Script" uid="uid://bwfwyth0qdufo" path="res://Escenas/Objetos/Negativos/placa.gd" id="1_y3m12"]
+[ext_resource type="Texture2D" uid="uid://5t2ppreyfv51" path="res://Assets/Objetos/placa pixel art.png" id="2_y3m12"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctkg4"]
+radius = 42.0
+height = 110.0
+
+[node name="Placa" type="Area2D" unique_id=2028840203]
+script = ExtResource("1_y3m12")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=455093244]
+position = Vector2(0, -56)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_y3m12")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785098093]
+position = Vector2(0, -57)
+shape = SubResource("CapsuleShape2D_ctkg4")

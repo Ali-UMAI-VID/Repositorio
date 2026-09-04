@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bsteskqnltmjo"]
+
+[ext_resource type="Script" uid="uid://c0sny2dbg5bw" path="res://Escenas/Objetos/Positivos/disco.gd" id="1_76wg1"]
+[ext_resource type="Texture2D" uid="uid://cyvtbb6moua1c" path="res://Assets/Objetos/cd pixel art.png" id="2_76wg1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_76wg1"]
+radius = 38.0
+
+[node name="Disco" type="Area2D" unique_id=296335029]
+script = ExtResource("1_76wg1")
+
+[node name="SpriteDisco" type="Sprite2D" parent="." unique_id=1141882665]
+position = Vector2(0, -41)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_76wg1")
+
+[node name="ColisionDisco" type="CollisionShape2D" parent="." unique_id=432799499]
+position = Vector2(0, -43)
+shape = SubResource("CircleShape2D_76wg1")

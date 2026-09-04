@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bkey2tnhjgvi0"]
+
+[ext_resource type="Script" uid="uid://btmoktkh3ist1" path="res://Escenas/jugador.gd" id="1_pd7u1"]
+[ext_resource type="Texture2D" uid="uid://dwe1wcg46h0g2" path="res://Assets/Boca/skin default 1.png" id="2_pd7u1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewkf5"]
+radius = 39.0
+height = 86.0
+
+[node name="Jugador" type="CharacterBody2D" unique_id=1397619718 node_paths=PackedStringArray("area_boca", "timer_inv")]
+script = ExtResource("1_pd7u1")
+area_boca = NodePath("AreaBoca")
+timer_inv = NodePath("TimerInvencible")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1974758011]
+position = Vector2(0, -1.9073486e-06)
+scale = Vector2(0.07590498, 0.07590497)
+texture = ExtResource("2_pd7u1")
+
+[node name="AreaBoca" type="Area2D" parent="." unique_id=704754315]
+
+[node name="CollisionBoca" type="CollisionShape2D" parent="AreaBoca" unique_id=1929314340]
+shape = SubResource("CapsuleShape2D_ewkf5")
+
+[node name="TimerInvencible" type="Timer" parent="." unique_id=1326054215]
+one_shot = true
+
+[connection signal="area_entered" from="AreaBoca" to="." method="_on_area_boca_area_entered"]
+[connection signal="timeout" from="TimerInvencible" to="." method="_on_timer_invencible_timeout"]

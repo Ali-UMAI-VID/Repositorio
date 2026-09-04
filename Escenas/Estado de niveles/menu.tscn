@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://c83qedt3ffld5"]
+
+[ext_resource type="Script" uid="uid://chy2krhifb54k" path="res://Escenas/Estado de niveles/menu.gd" id="1_2fnph"]
+[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="2_dn2hn"]
+[ext_resource type="Texture2D" uid="uid://ddv0jghhawdc8" path="res://Assets/Interfaz/Fondo/fondo menu.png" id="3_dn2hn"]
+[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_w7i6g"]
+[ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="4_jq00g"]
+[ext_resource type="AudioStream" uid="uid://dlnj76kn4q24m" path="res://Sonidos/Musica/Start me up (PantallaTitulo) .mp3" id="4_o6iyx"]
+[ext_resource type="AudioStream" uid="uid://d0yamj3gepxoi" path="res://Sonidos/Efectos/Interfaz/botonIniciarJuego.wav" id="5_dn2hn"]
+[ext_resource type="Texture2D" uid="uid://derkfdmqpomaj" path="res://Assets/Interfaz/botones/BOTON JUGAR no.png" id="7_l30rk"]
+[ext_resource type="Texture2D" uid="uid://duc3wcu1bo6qg" path="res://Assets/Interfaz/botones/BOTON JUGAR.png" id="8_fxen5"]
+[ext_resource type="Texture2D" uid="uid://d0qbqki6l2pv0" path="res://Assets/Interfaz/botones/OPCIONES no.png" id="9_u68lw"]
+[ext_resource type="Texture2D" uid="uid://cav7vl56fcvlu" path="res://Assets/Interfaz/botones/OPCIONES si.png" id="10_qlnwu"]
+[ext_resource type="Texture2D" uid="uid://blxqejujrhl21" path="res://Assets/Interfaz/botones/salir no.png" id="11_y0g7n"]
+[ext_resource type="Texture2D" uid="uid://112pquhkp1o3" path="res://Assets/Interfaz/botones/salir si.png" id="12_thyyr"]
+[ext_resource type="Texture2D" uid="uid://dpurng31e8abd" path="res://Assets/Interfaz/botones/BOTON TIENDA 2.png" id="13_u4hrg"]
+[ext_resource type="Texture2D" uid="uid://c7y1jk455o7o2" path="res://Assets/Interfaz/botones/BOTON TIENDA.png" id="14_ghd6a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vq16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l30rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fxen5")
+}],
+"loop": 1,
+"name": &"Jugar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_u68lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qlnwu")
+}],
+"loop": 1,
+"name": &"Opciones",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_y0g7n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_thyyr")
+}],
+"loop": 1,
+"name": &"Salir",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_u4hrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ghd6a")
+}],
+"loop": 1,
+"name": &"Tienda",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Control" unique_id=1021825583 node_paths=PackedStringArray("sonido_boton", "PosJugador", "BotonJugar", "BotonTienda", "BotonOpciones", "BotonSalir")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fnph")
+escena_skin = "uid://sfpywx01bdqc"
+sonido_boton = NodePath("BotonEfecto")
+escena_skins = ExtResource("2_dn2hn")
+escena_nivel = ExtResource("3_w7i6g")
+PosJugador = NodePath("PosicionJugador")
+BotonJugar = NodePath("JugarSprites")
+BotonTienda = NodePath("TiendaSprites")
+BotonOpciones = NodePath("OpcionesSprites")
+BotonSalir = NodePath("SalirSprites")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=999506348]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+texture = ExtResource("3_dn2hn")
+
+[node name="MenuFondoMusica" type="AudioStreamPlayer2D" parent="." unique_id=1669261520]
+visible = false
+stream = ExtResource("4_o6iyx")
+volume_db = -20.0
+autoplay = true
+
+[node name="BotonEfecto" type="AudioStreamPlayer2D" parent="." unique_id=1858944687]
+stream = ExtResource("5_dn2hn")
+volume_db = -33.95
+
+[node name="JugarSprites" type="AnimatedSprite2D" parent="." unique_id=175013160]
+position = Vector2(960, 574)
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"Jugar"
+
+[node name="TiendaSprites" type="AnimatedSprite2D" parent="." unique_id=178219997]
+position = Vector2(960, 712)
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"Tienda"
+
+[node name="OpcionesSprites" type="AnimatedSprite2D" parent="." unique_id=1348596868]
+position = Vector2(960, 851)
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"Opciones"
+
+[node name="SalirSprites" type="AnimatedSprite2D" parent="." unique_id=40158780]
+position = Vector2(960, 990)
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"Salir"
+
+[node name="PosicionJugador" type="TextureRect" parent="." unique_id=466335042]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 742.0
+offset_top = 526.0
+offset_right = 1178.0
+offset_bottom = 626.0
+texture = ExtResource("4_jq00g")

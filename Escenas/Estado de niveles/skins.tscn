@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://sfpywx01bdqc"]
+
+[ext_resource type="Script" uid="uid://gpy44q3h16yo" path="res://Escenas/Estado de niveles/skins.gd" id="1_l4al5"]
+[ext_resource type="PackedScene" uid="uid://cj3xqtte02ph8" path="res://Escenas/Estado de niveles/ganaste.tscn" id="2_krvy6"]
+[ext_resource type="Texture2D" uid="uid://b03g0p7ftihhv" path="res://Assets/Boca/Fondo de skins  sin nada.png" id="3_tod2a"]
+[ext_resource type="PackedScene" uid="uid://cj3xqtte02ph8" path="res://Escenas/Estado de niveles/ganaste.tscn" id="3_vq6pa"]
+[ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="4_epg0g"]
+[ext_resource type="AudioStream" uid="uid://c11quyq68bhrs" path="res://Sonidos/Efectos/Interfaz/boton(PersonajeElegido).wav" id="5_tod2a"]
+[ext_resource type="Texture2D" uid="uid://b1p3r6fdkjymd" path="res://Assets/Boca/skin default.png" id="7_fbe4y"]
+[ext_resource type="Texture2D" uid="uid://bdm25wkdemjv" path="res://Assets/Boca/skin default seleccionada.png" id="8_0vv0a"]
+[ext_resource type="Texture2D" uid="uid://dcc1db1d8b6mf" path="res://Assets/Boca/volver no.png" id="9_pwn54"]
+[ext_resource type="Texture2D" uid="uid://dim2b0223lrd8" path="res://Assets/Boca/volver si.png" id="10_so7gm"]
+[ext_resource type="PackedScene" uid="uid://ctve544ange1c" path="res://Escenas/Interfaz/skin_bloqueada.tscn" id="12_vq6pa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpy8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_fbe4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0vv0a")
+}],
+"loop": 1,
+"name": &"Boca_default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_pwn54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_so7gm")
+}],
+"loop": 1,
+"name": &"Volver",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq16u"]
+size = Vector2(65, 62)
+
+[node name="Skins" type="Control" unique_id=815065086 node_paths=PackedStringArray("PosJugador", "sonido_boton", "skin_default", "boton_volver")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l4al5")
+escena_nivel = ExtResource("2_krvy6")
+PosJugador = NodePath("PosicionJugador")
+sonido_boton = NodePath("AudioStreamPlayer2D")
+skin_default = NodePath("Skin_default")
+boton_volver = NodePath("BotonVolver")
+escena_menu = ExtResource("3_vq6pa")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1593142762]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_tod2a")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=682698849]
+position = Vector2(317, 360)
+stream = ExtResource("5_tod2a")
+volume_db = -20.0
+autoplay = true
+
+[node name="Skin_default" type="AnimatedSprite2D" parent="." unique_id=2051464958]
+position = Vector2(483, 259)
+sprite_frames = SubResource("SpriteFrames_vpy8e")
+animation = &"Boca_default"
+centered = false
+
+[node name="Skin_bloqueada" parent="." unique_id=1855016422 node_paths=PackedStringArray("jugador_interfaz") instance=ExtResource("12_vq6pa")]
+position = Vector2(855, 259)
+jugador_interfaz = NodePath("../PosicionJugador/Area_pos_jug")
+
+[node name="Skin_bloq6" parent="." unique_id=695010644 instance=ExtResource("12_vq6pa")]
+position = Vector2(1228, 259)
+
+[node name="Skin_bloq7" parent="." unique_id=1470549026 instance=ExtResource("12_vq6pa")]
+position = Vector2(483, 628)
+
+[node name="Skin_bloq8" parent="." unique_id=1517682840 instance=ExtResource("12_vq6pa")]
+position = Vector2(855, 628)
+
+[node name="Skin_bloq9" parent="." unique_id=1391380490 instance=ExtResource("12_vq6pa")]
+position = Vector2(1228, 628)
+
+[node name="BotonVolver" type="AnimatedSprite2D" parent="." unique_id=142178437]
+position = Vector2(751, 942)
+sprite_frames = SubResource("SpriteFrames_vpy8e")
+animation = &"Volver"
+centered = false
+
+[node name="PosicionJugador" type="Sprite2D" parent="." unique_id=1627276431]
+modulate = Color(1, 1, 1, 0.23137255)
+position = Vector2(972, 795)
+texture = ExtResource("4_epg0g")
+
+[node name="Area_pos_jug" type="Area2D" parent="PosicionJugador" unique_id=2140236525]
+
+[node name="Col_jugador" type="CollisionShape2D" parent="PosicionJugador/Area_pos_jug" unique_id=1440750736]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_vq16u")

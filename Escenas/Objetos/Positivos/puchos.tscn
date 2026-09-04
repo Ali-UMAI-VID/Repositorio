@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bdf4254vxb1jr"]
+
+[ext_resource type="Script" uid="uid://c57joxyhrbvac" path="res://Escenas/Objetos/Positivos/puchos.gd" id="1_bwt8d"]
+[ext_resource type="Texture2D" uid="uid://cq2nf4f5jnady" path="res://Assets/Objetos/puchito.png" id="1_copdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpy8e"]
+size = Vector2(775, 911.1112)
+
+[node name="Puchos" type="Area2D" unique_id=772134628]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_bwt8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=904682242]
+position = Vector2(5.684342e-14, -1.1368684e-13)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_copdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=719427576]
+position = Vector2(-39.999996, 19.999985)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_vpy8e")

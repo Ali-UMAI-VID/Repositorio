@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ctve544ange1c"]
+
+[ext_resource type="Texture2D" uid="uid://drmwsog5e06k5" path="res://Assets/Boca/skin bloqueada seleccionada.png" id="1_rpxjn"]
+[ext_resource type="Texture2D" uid="uid://2tyidouid5k2" path="res://Assets/Boca/skin bloqueada seleccionada 2.png" id="2_k0pae"]
+[ext_resource type="Script" uid="uid://7l1qekr2caqh" path="res://Escenas/Interfaz/skin_bloqueada.gd" id="3_s3r4m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq16u"]
+size = Vector2(176, 265)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpy8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rpxjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k0pae")
+}],
+"loop": 1,
+"name": &"bloqueada",
+"speed": 5.0
+}]
+
+[node name="Skin_bloq" type="Area2D" unique_id=695010644]
+script = ExtResource("3_s3r4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1819354226]
+position = Vector2(117, 166.5)
+shape = SubResource("RectangleShape2D_vq16u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445531319]
+sprite_frames = SubResource("SpriteFrames_vpy8e")
+animation = &"bloqueada"
+centered = false
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

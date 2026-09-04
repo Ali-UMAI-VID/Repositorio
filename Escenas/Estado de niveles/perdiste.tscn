@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://gyc2w8uencj0"]
+
+[ext_resource type="Script" uid="uid://bw2amtgibtcq3" path="res://Escenas/Estado de niveles/perdiste.gd" id="1_n61pi"]
+[ext_resource type="AudioStream" uid="uid://coha48li47hog" path="res://Sonidos/Efectos/Interfaz/soniditoQicNiIdea.wav" id="3_2geqd"]
+[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_5mtai"]
+[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_q10ui"]
+[ext_resource type="Texture2D" uid="uid://d1h6bbir48wgf" path="res://Assets/Interfaz/botones/RENAUDAR NO.png" id="5_2geqd"]
+[ext_resource type="AudioStream" uid="uid://bwpcdr1foh71x" path="res://Sonidos/Musica/Paint it black (Nivel 1).mp3" id="5_nle34"]
+[ext_resource type="Texture2D" uid="uid://8yccu1ajx8i8" path="res://Assets/Interfaz/Fondo/Fondo perdiSTE sin score.png" id="5_pjbqf"]
+[ext_resource type="Texture2D" uid="uid://cuypqgwkthe3j" path="res://Assets/Interfaz/botones/RENAUDAR SI.png" id="6_q10ui"]
+[ext_resource type="Texture2D" uid="uid://dk2hq5crcprly" path="res://Assets/Interfaz/botones/VOLVER NO.png" id="7_pjbqf"]
+[ext_resource type="Texture2D" uid="uid://dimruaby31jv" path="res://Assets/Interfaz/botones/VOLVER SI.png" id="8_puril"]
+[ext_resource type="Texture2D" uid="uid://d0qbqki6l2pv0" path="res://Assets/Interfaz/botones/OPCIONES no.png" id="9_ffpj4"]
+[ext_resource type="Texture2D" uid="uid://cav7vl56fcvlu" path="res://Assets/Interfaz/botones/OPCIONES si.png" id="10_gkt0y"]
+[ext_resource type="Texture2D" uid="uid://blxqejujrhl21" path="res://Assets/Interfaz/botones/salir no.png" id="11_3pht4"]
+[ext_resource type="Texture2D" uid="uid://112pquhkp1o3" path="res://Assets/Interfaz/botones/salir si.png" id="12_r46y3"]
+[ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="13_ibk7c"]
+[ext_resource type="Script" uid="uid://pqpth5f8rtmx" path="res://Escenas/score_txt.gd" id="16_pjbqf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b5vyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2geqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q10ui")
+}],
+"loop": 1,
+"name": &"RENAUDAR",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vq16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_pjbqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_puril")
+}],
+"loop": 1,
+"name": &"VOLVER AL MENU",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_weagc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ffpj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gkt0y")
+}],
+"loop": 1,
+"name": &"OPCIONES",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpy8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3pht4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r46y3")
+}],
+"loop": 1,
+"name": &"SALIR",
+"speed": 5.0
+}]
+
+[node name="Perdiste" type="Control" unique_id=1721790666 node_paths=PackedStringArray("sonido_boton", "PosJugador", "BotonRenaudar", "BotonMenu", "BotonOpciones", "BotonSalir")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n61pi")
+sonido_boton = NodePath("EfectoBoton")
+escena_menu = ExtResource("3_5mtai")
+escena_nivel = ExtResource("3_q10ui")
+PosJugador = NodePath("PosicionJugador")
+BotonRenaudar = NodePath("RENAUDAR")
+BotonMenu = NodePath("VOLVERALMENU")
+BotonOpciones = NodePath("OPCIONES")
+BotonSalir = NodePath("SALIR")
+
+[node name="EfectoBoton" type="AudioStreamPlayer2D" parent="." unique_id=1582099448]
+stream = ExtResource("3_2geqd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1564987477]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_pjbqf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=408580783]
+stream = ExtResource("5_nle34")
+volume_db = -25.0
+pitch_scale = 0.67
+autoplay = true
+
+[node name="RENAUDAR" type="AnimatedSprite2D" parent="." unique_id=1256669093]
+position = Vector2(1202, 540)
+sprite_frames = SubResource("SpriteFrames_b5vyj")
+animation = &"RENAUDAR"
+
+[node name="VOLVERALMENU" type="AnimatedSprite2D" parent="." unique_id=1947886868]
+position = Vector2(1202, 668.5)
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"VOLVER AL MENU"
+
+[node name="OPCIONES" type="AnimatedSprite2D" parent="." unique_id=39729195]
+position = Vector2(1202, 794)
+sprite_frames = SubResource("SpriteFrames_weagc")
+animation = &"OPCIONES"
+
+[node name="SALIR" type="AnimatedSprite2D" parent="." unique_id=303103136]
+position = Vector2(1202, 924)
+sprite_frames = SubResource("SpriteFrames_vpy8e")
+animation = &"SALIR"
+
+[node name="PosicionJugador" type="TextureRect" parent="." unique_id=98362344]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 984.0
+offset_top = 492.0
+offset_right = 1420.0
+offset_bottom = 592.0
+texture = ExtResource("13_ibk7c")
+
+[node name="ScoreTxt" type="Label" parent="." unique_id=423378550]
+layout_mode = 0
+offset_left = 657.0
+offset_top = 673.0
+offset_right = 785.0
+offset_bottom = 728.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+script = ExtResource("16_pjbqf")

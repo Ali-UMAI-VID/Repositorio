@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://lhy0toald5kc"]
+
+[ext_resource type="Script" uid="uid://dsdvhwbqs1hmu" path="res://Escenas/Objetos/Positivos/speed.gd" id="1_sb2tv"]
+[ext_resource type="Texture2D" uid="uid://dbfjxjdtebs52" path="res://Assets/Objetos/marihuana pixel art.png" id="2_yqudo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqudo"]
+radius = 52.0
+
+[node name="Escena Speed" type="Area2D" unique_id=1239515536 node_paths=PackedStringArray("timer_velo")]
+script = ExtResource("1_sb2tv")
+timer_velo = NodePath("TimerSpeed")
+
+[node name="TimerSpeed" type="Timer" parent="." unique_id=1153011359]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Marihuana2" type="Sprite2D" parent="." unique_id=2053600113]
+position = Vector2(0, -61)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yqudo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1883949802]
+modulate = Color(1, 0.35980132, 0.9098305, 1)
+position = Vector2(-3, -52)
+shape = SubResource("CircleShape2D_yqudo")
+
+[connection signal="timeout" from="TimerSpeed" to="." method="_on_timer_speed_timeout"]

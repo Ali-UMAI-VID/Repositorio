@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dgj8an7are67i"]
+
+[ext_resource type="Script" uid="uid://do8f0763d436d" path="res://Escenas/vidas.gd" id="1_rceim"]
+[ext_resource type="Texture2D" uid="uid://f80qeewdwrai" path="res://vida_0.png" id="2_3vq6n"]
+[ext_resource type="Texture2D" uid="uid://bltu1bsvqd62t" path="res://vida_1.png" id="3_kskoo"]
+[ext_resource type="Texture2D" uid="uid://c0nplwpl4tb0f" path="res://vida_2.png" id="4_6acyt"]
+[ext_resource type="Texture2D" uid="uid://b130bay04svo6" path="res://vida_3.png" id="5_f4p5n"]
+[ext_resource type="Texture2D" uid="uid://cv0n5ndiundij" path="res://vida_4.png" id="6_yjgds"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3vq6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3vq6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kskoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6acyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f4p5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yjgds")
+}],
+"loop": 0,
+"name": &"vidas",
+"speed": 1.0
+}]
+
+[node name="vidas" type="Node2D" unique_id=1405326338 node_paths=PackedStringArray("sprite_vidas")]
+script = ExtResource("1_rceim")
+sprite_vidas = NodePath("vida_animada")
+
+[node name="vida_animada" type="AnimatedSprite2D" parent="." unique_id=446108320]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3vq6n")
+animation = &"vidas"

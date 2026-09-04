@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bldlio3gub6yg"
+path="res://.godot/imported/Gimme Shelter (Nivel 3 Final) .mp3-e38d33ea49ff017ea68b1acdc9f496e5.mp3str"
+
+[deps]
+
+source_file="res://Sonidos/Musica/Gimme Shelter (Nivel 3 Final) .mp3"
+dest_files=["res://.godot/imported/Gimme Shelter (Nivel 3 Final) .mp3-e38d33ea49ff017ea68b1acdc9f496e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

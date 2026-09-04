@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://cj3xqtte02ph8"]
+
+[ext_resource type="Script" uid="uid://ckfh2h50qtpdt" path="res://Escenas/Estado de niveles/ganaste.gd" id="1_4kkfn"]
+[ext_resource type="Texture2D" uid="uid://byh8dyincwnsu" path="res://Assets/Interfaz/Fondo/Fondo GANASTE sin score.png" id="1_xkhw2"]
+[ext_resource type="PackedScene" uid="uid://sfpywx01bdqc" path="res://Escenas/Estado de niveles/skins.tscn" id="2_cj6q3"]
+[ext_resource type="Texture2D" uid="uid://d1h6bbir48wgf" path="res://Assets/Interfaz/botones/RENAUDAR NO.png" id="2_e5ve4"]
+[ext_resource type="Texture2D" uid="uid://cuypqgwkthe3j" path="res://Assets/Interfaz/botones/RENAUDAR SI.png" id="3_l45wv"]
+[ext_resource type="PackedScene" uid="uid://sfpywx01bdqc" path="res://Escenas/Estado de niveles/skins.tscn" id="3_oglql"]
+[ext_resource type="Texture2D" uid="uid://dk2hq5crcprly" path="res://Assets/Interfaz/botones/VOLVER NO.png" id="4_0f3dl"]
+[ext_resource type="Texture2D" uid="uid://dimruaby31jv" path="res://Assets/Interfaz/botones/VOLVER SI.png" id="5_g3si4"]
+[ext_resource type="Texture2D" uid="uid://d0qbqki6l2pv0" path="res://Assets/Interfaz/botones/OPCIONES no.png" id="6_wb7pl"]
+[ext_resource type="Texture2D" uid="uid://cav7vl56fcvlu" path="res://Assets/Interfaz/botones/OPCIONES si.png" id="7_d2qor"]
+[ext_resource type="Texture2D" uid="uid://blxqejujrhl21" path="res://Assets/Interfaz/botones/salir no.png" id="8_6b11n"]
+[ext_resource type="Texture2D" uid="uid://112pquhkp1o3" path="res://Assets/Interfaz/botones/salir si.png" id="9_4kkfn"]
+[ext_resource type="Script" uid="uid://pqpth5f8rtmx" path="res://Escenas/score_txt.gd" id="10_0f3dl"]
+[ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="11_g3si4"]
+[ext_resource type="PackedScene" uid="uid://dgj8an7are67i" path="res://Escenas/vidas.tscn" id="12_wb7pl"]
+[ext_resource type="AudioStream" uid="uid://coha48li47hog" path="res://Sonidos/Efectos/Interfaz/soniditoQicNiIdea.wav" id="16_gumfd"]
+[ext_resource type="AudioStream" uid="uid://dlnj76kn4q24m" path="res://Sonidos/Musica/Start me up (PantallaTitulo) .mp3" id="17_4kkfn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj6q3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e5ve4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l45wv")
+}],
+"loop": 1,
+"name": &"RENAUDAR",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oglql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0f3dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g3si4")
+}],
+"loop": 1,
+"name": &"VOLVER AL MENU",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gumfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wb7pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d2qor")
+}],
+"loop": 1,
+"name": &"OPCIONES",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42sko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6b11n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4kkfn")
+}],
+"loop": 1,
+"name": &"SALIR",
+"speed": 5.0
+}]
+
+[node name="Ganaste" type="Control" unique_id=815065086 node_paths=PackedStringArray("sonido_boton", "PosJugador", "BotonRenaudar", "BotonMenu", "BotonOpciones", "BotonSalir")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4kkfn")
+sonido_boton = NodePath("EfectoBoton")
+escena_menu = ExtResource("2_cj6q3")
+escena_nivel = ExtResource("3_oglql")
+PosJugador = NodePath("PosicionJugador")
+BotonRenaudar = NodePath("RENAUDAR")
+BotonMenu = NodePath("VOLVERALMENU")
+BotonOpciones = NodePath("OPCIONES")
+BotonSalir = NodePath("SALIR")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1593142762]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_xkhw2")
+
+[node name="RENAUDAR" type="AnimatedSprite2D" parent="." unique_id=1144120738]
+position = Vector2(1202, 540)
+sprite_frames = SubResource("SpriteFrames_cj6q3")
+animation = &"RENAUDAR"
+
+[node name="VOLVERALMENU" type="AnimatedSprite2D" parent="." unique_id=143567950]
+position = Vector2(1202, 668.5)
+sprite_frames = SubResource("SpriteFrames_oglql")
+animation = &"VOLVER AL MENU"
+
+[node name="OPCIONES" type="AnimatedSprite2D" parent="." unique_id=1938486510]
+position = Vector2(1202, 794)
+sprite_frames = SubResource("SpriteFrames_gumfd")
+animation = &"OPCIONES"
+
+[node name="SALIR" type="AnimatedSprite2D" parent="." unique_id=1055822296]
+position = Vector2(1202, 924)
+sprite_frames = SubResource("SpriteFrames_42sko")
+animation = &"SALIR"
+
+[node name="ScoreTxt" type="Label" parent="." unique_id=2101244588]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 835.0
+offset_right = 646.0
+offset_bottom = 948.0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+script = ExtResource("10_0f3dl")
+
+[node name="PosicionJugador" type="TextureRect" parent="." unique_id=1741491952]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 984.0
+offset_top = 492.0
+offset_right = 1420.0
+offset_bottom = 592.0
+texture = ExtResource("11_g3si4")
+
+[node name="vidas" parent="." unique_id=1405326338 instance=ExtResource("12_wb7pl")]
+position = Vector2(745, 755)
+
+[node name="EfectoBoton" type="AudioStreamPlayer2D" parent="." unique_id=433396375]
+stream = ExtResource("16_gumfd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=935090510]
+stream = ExtResource("17_4kkfn")
+volume_db = -20.0
+pitch_scale = 1.2
+autoplay = true
