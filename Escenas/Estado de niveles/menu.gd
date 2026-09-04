@@ -2,8 +2,10 @@ extends Control
 
 @export_file var escena_skin: String
 @export var sonido_boton: AudioStreamPlayer2D
-@export var escena_skins : PackedScene
-@export var escena_nivel : PackedScene
+@export_file_path("*.tscn") var escena_skins_path : String
+@export_file_path("*.tscn") var escena_nivel_path : String
+@onready var escena_menu : PackedScene = load(escena_skins_path)
+@onready var escena_nivel : PackedScene = load(escena_nivel_path)
 @export var PosJugador : TextureRect
 
 @export var BotonJugar : AnimatedSprite2D

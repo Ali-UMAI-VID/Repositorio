@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://c83qedt3ffld5"]
 
 [ext_resource type="Script" uid="uid://chy2krhifb54k" path="res://Escenas/Estado de niveles/menu.gd" id="1_2fnph"]
-[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="2_dn2hn"]
 [ext_resource type="Texture2D" uid="uid://ddv0jghhawdc8" path="res://Assets/Interfaz/Fondo/fondo menu.png" id="3_dn2hn"]
-[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_w7i6g"]
 [ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="4_jq00g"]
 [ext_resource type="AudioStream" uid="uid://dlnj76kn4q24m" path="res://Sonidos/Musica/Start me up (PantallaTitulo) .mp3" id="4_o6iyx"]
 [ext_resource type="AudioStream" uid="uid://d0yamj3gepxoi" path="res://Sonidos/Efectos/Interfaz/botonIniciarJuego.wav" id="5_dn2hn"]
@@ -73,8 +71,6 @@ grow_vertical = 2
 script = ExtResource("1_2fnph")
 escena_skin = "uid://sfpywx01bdqc"
 sonido_boton = NodePath("BotonEfecto")
-escena_skins = ExtResource("2_dn2hn")
-escena_nivel = ExtResource("3_w7i6g")
 PosJugador = NodePath("PosicionJugador")
 BotonJugar = NodePath("JugarSprites")
 BotonTienda = NodePath("TiendaSprites")

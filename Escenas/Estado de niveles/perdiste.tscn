@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bw2amtgibtcq3" path="res://Escenas/Estado de niveles/perdiste.gd" id="1_n61pi"]
 [ext_resource type="AudioStream" uid="uid://coha48li47hog" path="res://Sonidos/Efectos/Interfaz/soniditoQicNiIdea.wav" id="3_2geqd"]
-[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_5mtai"]
-[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_q10ui"]
+;[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_5mtai"]
+;[ext_resource type="PackedScene" uid="uid://cume6bcixh2hd" path="res://Escenas/Estado de niveles/Nivel.tscn" id="3_q10ui"]
 [ext_resource type="Texture2D" uid="uid://d1h6bbir48wgf" path="res://Assets/Interfaz/botones/RENAUDAR NO.png" id="5_2geqd"]
 [ext_resource type="AudioStream" uid="uid://bwpcdr1foh71x" path="res://Sonidos/Musica/Paint it black (Nivel 1).mp3" id="5_nle34"]
 [ext_resource type="Texture2D" uid="uid://8yccu1ajx8i8" path="res://Assets/Interfaz/Fondo/Fondo perdiSTE sin score.png" id="5_pjbqf"]
@@ -82,8 +82,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n61pi")
 sonido_boton = NodePath("EfectoBoton")
-escena_menu = ExtResource("3_5mtai")
-escena_nivel = ExtResource("3_q10ui")
+;escena_menu = ExtResource("3_5mtai")
+;escena_nivel = ExtResource("3_q10ui")
 PosJugador = NodePath("PosicionJugador")
 BotonRenaudar = NodePath("RENAUDAR")
 BotonMenu = NodePath("VOLVERALMENU")
