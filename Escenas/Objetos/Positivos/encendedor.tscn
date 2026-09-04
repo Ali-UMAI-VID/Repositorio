@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d03y56mb8s2u4"]
+
+[ext_resource type="Texture2D" uid="uid://bmsuiwdgwhax6" path="res://Assets/Objetos/encendedor pixel art.png" id="1_2dbds"]
+[ext_resource type="Script" uid="uid://dua5rouk6juth" path="res://Escenas/Objetos/Positivos/encendedor.gd" id="1_fog72"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq16u"]
+size = Vector2(80, 182)
+
+[node name="Encendedor" type="Area2D" unique_id=1629147257]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_fog72")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=668421376]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_2dbds")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=291368066]
+position = Vector2(26.66666, 88.33333)
+scale = Vector2(0.6, 0.6)
+shape = SubResource("RectangleShape2D_vq16u")

@@ -93,7 +93,7 @@ animation = &"Volver"
 centered = false
 
 [node name="PosicionJugador" type="Sprite2D" parent="." unique_id=1627276431]
-modulate = Color(1, 1, 1, 0.23137255)
+modulate = Color(1, 1, 1, 0)
 position = Vector2(972, 795)
 texture = ExtResource("4_epg0g")
 

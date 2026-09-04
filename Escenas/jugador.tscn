@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://btmoktkh3ist1" path="res://Escenas/jugador.gd" id="1_pd7u1"]
 [ext_resource type="Texture2D" uid="uid://dwe1wcg46h0g2" path="res://Assets/Boca/skin default 1.png" id="2_pd7u1"]
+[ext_resource type="Texture2D" uid="uid://bkvpfj08n0hm6" path="res://Assets/Boca/Boca_pt_arriba.png" id="3_ut6g8"]
+[ext_resource type="Texture2D" uid="uid://1hqv2wmm7y4i" path="res://Assets/Boca/Boca_pt_abajo.png" id="4_wlual"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ewkf5"]
-radius = 39.0
-height = 86.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n15ev"]
+size = Vector2(5600.001, 1210.0002)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1397619718 node_paths=PackedStringArray("area_boca", "timer_inv")]
 script = ExtResource("1_pd7u1")
@@ -13,14 +14,29 @@ area_boca = NodePath("AreaBoca")
 timer_inv = NodePath("TimerInvencible")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1974758011]
+visible = false
 position = Vector2(0, -1.9073486e-06)
-scale = Vector2(0.07590498, 0.07590497)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_pd7u1")
 
+[node name="BocaPtArriba" type="Sprite2D" parent="." unique_id=90007363]
+visible = false
+position = Vector2(0, -23.000002)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_ut6g8")
+
+[node name="BocaPtAbajo" type="Sprite2D" parent="." unique_id=1804463224]
+position = Vector2(0, 29)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_wlual")
+
 [node name="AreaBoca" type="Area2D" parent="." unique_id=704754315]
+scale = Vector2(0.1, 0.1)
 
 [node name="CollisionBoca" type="CollisionShape2D" parent="AreaBoca" unique_id=1929314340]
-shape = SubResource("CapsuleShape2D_ewkf5")
+position = Vector2(50, 59.999992)
+scale = Vector2(0.09999997, 0.09999997)
+shape = SubResource("RectangleShape2D_n15ev")
 
 [node name="TimerInvencible" type="Timer" parent="." unique_id=1326054215]
 one_shot = true

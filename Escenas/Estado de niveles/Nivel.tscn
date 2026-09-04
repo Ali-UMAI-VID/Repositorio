@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://44netdbpfh0i" path="res://Escenas/timer_txt.gd" id="4_s50yn"]
 [ext_resource type="Texture2D" uid="uid://djpwed0ukq4r7" path="res://Assets/Interfaz/Interfaz de usuario.png" id="4_ut45a"]
 [ext_resource type="PackedScene" uid="uid://dgj8an7are67i" path="res://Escenas/vidas.tscn" id="5_0b4ry"]
+[ext_resource type="Texture2D" uid="uid://bkvpfj08n0hm6" path="res://Assets/Boca/Boca_pt_arriba.png" id="5_n15ev"]
 [ext_resource type="PackedScene" uid="uid://daox7cx03xwwd" path="res://Escenas/Objetos/Negativos/Placa.tscn" id="7_sxaxo"]
 [ext_resource type="Texture2D" uid="uid://e1ow7oothnhe" path="res://Assets/Objetos/botella pixel art.png" id="8_14vwf"]
 [ext_resource type="Texture2D" uid="uid://cyvtbb6moua1c" path="res://Assets/Objetos/cd pixel art.png" id="9_56211"]
@@ -29,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cq2nf4f5jnady" path="res://Assets/Objetos/puchito.png" id="16_oldwl"]
 [ext_resource type="Texture2D" uid="uid://dc41dctestyeb" path="res://Assets/Objetos/vinilo pixel art.png" id="17_nbw62"]
 [ext_resource type="Texture2D" uid="uid://bmsuiwdgwhax6" path="res://Assets/Objetos/encendedor pixel art.png" id="18_i4fq6"]
+[ext_resource type="PackedScene" uid="uid://d03y56mb8s2u4" path="res://Escenas/Objetos/Positivos/encendedor.tscn" id="22_56211"]
 [ext_resource type="PackedScene" uid="uid://bu7rs1ug43q42" path="res://Escenas/Objetos/Negativos/pimienta_congela.tscn" id="23_n15ev"]
 [ext_resource type="PackedScene" uid="uid://cd2l5b6s68q7u" path="res://Escenas/Objetos/Negativos/porra.tscn" id="29_56211"]
 
@@ -54,21 +56,67 @@ script = ExtResource("1_of526")
 escena_perdiste_path = "res://Escenas/Estado de niveles/perdiste.tscn"
 escena_ganaste_path = "res://Escenas/Estado de niveles/ganaste.tscn"
 
-[node name="Fondo" type="CanvasLayer" parent="." unique_id=2020750910]
+[node name="Juego" type="CanvasLayer" parent="." unique_id=257167832]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fondo" unique_id=1758409199]
+[node name="Fondo de juego" type="AnimatedSprite2D" parent="Juego" unique_id=1758409199]
 position = Vector2(961, 552)
 sprite_frames = SubResource("SpriteFrames_vq16u")
 
-[node name="SpawnEnemigo" type="Node2D" parent="Fondo" unique_id=1477308718]
+[node name="Jugador" parent="Juego" unique_id=421185857 groups=["jugador"] instance=ExtResource("2_ctkg4")]
+position = Vector2(860, 900)
+
+[node name="BocaPtArriba2" type="Sprite2D" parent="Juego/Jugador" unique_id=2129333803]
+position = Vector2(0, -23.000002)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("5_n15ev")
+
+[node name="SpawnEnemigo" type="Node2D" parent="Juego" unique_id=1477308718]
 script = ExtResource("10_sxaxo")
 
+[node name="MicroEscena" parent="Juego" unique_id=814318680 instance=ExtResource("3_e1c7d")]
+position = Vector2(882, 1296)
+
+[node name="Encendedor" parent="Juego" unique_id=1629147257 instance=ExtResource("22_56211")]
+position = Vector2(1515, 1084)
+
+[node name="Pimienta_congela" parent="Juego" unique_id=427338619 instance=ExtResource("23_n15ev")]
+position = Vector2(1365, 1233)
+
+[node name="Vinilo" parent="Juego" unique_id=590292926 instance=ExtResource("11_jaqgx")]
+position = Vector2(1034, 1316)
+
+[node name="Disco" parent="Juego" unique_id=296335029 instance=ExtResource("12_fbggv")]
+position = Vector2(788, 1225)
+
+[node name="Placa" parent="Juego" unique_id=2028840203 instance=ExtResource("7_sxaxo")]
+position = Vector2(1168, 1331)
+
+[node name="Escena Speed" parent="Juego" unique_id=1991450299 instance=ExtResource("9_whbte")]
+position = Vector2(583, 1320)
+
+[node name="Puchos" parent="Juego" unique_id=772134628 instance=ExtResource("13_2ddwb")]
+position = Vector2(753, 1294)
+
+[node name="Agua" parent="Juego" unique_id=1418312346 instance=ExtResource("14_2ddwb")]
+position = Vector2(939, 1210)
+
+[node name="Porra" parent="Juego" unique_id=318324965 instance=ExtResource("29_56211")]
+position = Vector2(1427, 1299)
+
+[node name="Esposas" parent="Juego" unique_id=515695792 instance=ExtResource("15_pnrdi")]
+position = Vector2(1267, 1172)
+
+[node name="AreaMuerte" type="Area2D" parent="Juego" unique_id=1075150899]
+
+[node name="ColisionMuerte" type="CollisionShape2D" parent="Juego/AreaMuerte" unique_id=1406830617]
+position = Vector2(934.5, 1390)
+shape = SubResource("RectangleShape2D_hxvt1")
+
+[node name="Fondo" type="CanvasLayer" parent="." unique_id=2020750910]
+
 [node name="Interfaz" type="TextureRect" parent="Fondo" unique_id=1907627147]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 texture = ExtResource("4_ut45a")
@@ -133,19 +181,14 @@ position = Vector2(1538, 369)
 scale = Vector2(0.2382622, 0.2382622)
 texture = ExtResource("15_m7la7")
 
-[node name="Puchito" type="Sprite2D" parent="Fondo" unique_id=1540468294]
-position = Vector2(1703.9999, 365.99997)
-scale = Vector2(0.050467327, 0.05046733)
-texture = ExtResource("16_oldwl")
-
 [node name="ViniloPixelArt" type="Sprite2D" parent="Fondo" unique_id=1735513655]
 position = Vector2(1703.9999, 292)
 scale = Vector2(0.3269232, 0.3269232)
 texture = ExtResource("17_nbw62")
 
 [node name="EncendedorPixelArt2" type="Sprite2D" parent="Fondo" unique_id=2021071131]
-position = Vector2(2176, 366.00006)
-scale = Vector2(1.2949431, 1.2949431)
+position = Vector2(1671, 338)
+scale = Vector2(0.35568994, 0.35568997)
 texture = ExtResource("18_i4fq6")
 
 [node name="MicrofonoPixelArt1" type="Sprite2D" parent="Fondo" unique_id=1422110560]
@@ -153,46 +196,10 @@ position = Vector2(1747, 357.99997)
 scale = Vector2(0.3482143, 0.3482143)
 texture = ExtResource("13_xdm2d")
 
-[node name="Juego" type="CanvasLayer" parent="." unique_id=257167832]
-
-[node name="MicroEscena" parent="Juego" unique_id=814318680 instance=ExtResource("3_e1c7d")]
-position = Vector2(882, 1296)
-
-[node name="Pimienta_congela" parent="Juego" unique_id=427338619 instance=ExtResource("23_n15ev")]
-position = Vector2(1365, 1233)
-
-[node name="Vinilo" parent="Juego" unique_id=590292926 instance=ExtResource("11_jaqgx")]
-position = Vector2(1034, 1316)
-
-[node name="Disco" parent="Juego" unique_id=296335029 instance=ExtResource("12_fbggv")]
-position = Vector2(788, 1225)
-
-[node name="Placa" parent="Juego" unique_id=2028840203 instance=ExtResource("7_sxaxo")]
-position = Vector2(1168, 1331)
-
-[node name="Escena Speed" parent="Juego" unique_id=1991450299 instance=ExtResource("9_whbte")]
-position = Vector2(583, 1320)
-
-[node name="Puchos" parent="Juego" unique_id=772134628 instance=ExtResource("13_2ddwb")]
-position = Vector2(753, 1294)
-
-[node name="Agua" parent="Juego" unique_id=1418312346 instance=ExtResource("14_2ddwb")]
-position = Vector2(939, 1210)
-
-[node name="Porra" parent="Juego" unique_id=318324965 instance=ExtResource("29_56211")]
-position = Vector2(1427, 1299)
-
-[node name="Esposas" parent="Juego" unique_id=515695792 instance=ExtResource("15_pnrdi")]
-position = Vector2(1267, 1172)
-
-[node name="AreaMuerte" type="Area2D" parent="Juego" unique_id=1075150899]
-
-[node name="ColisionMuerte" type="CollisionShape2D" parent="Juego/AreaMuerte" unique_id=1406830617]
-position = Vector2(934.5, 1390)
-shape = SubResource("RectangleShape2D_hxvt1")
-
-[node name="Jugador" parent="Juego" unique_id=421185857 groups=["jugador"] instance=ExtResource("2_ctkg4")]
-position = Vector2(860, 900)
+[node name="Puchito" type="Sprite2D" parent="Fondo/MicrofonoPixelArt1" unique_id=1540468294]
+position = Vector2(-123.48779, 22.974365)
+scale = Vector2(0.14493181, 0.14493181)
+texture = ExtResource("16_oldwl")
 
 [node name="PantallaMuerte" type="CanvasLayer" parent="." unique_id=2093990462]
 
@@ -208,4 +215,4 @@ parameters/looping = false
 
 [connection signal="body_entered" from="Juego/AreaMuerte" to="." method="_on_area_muerte_body_entered"]
 [connection signal="body_shape_entered" from="Juego/AreaMuerte" to="." method="_on_area_muerte_body_shape_entered"]
-[connection signal="timeout" from="SpawnEne" to="Fondo/SpawnEnemigo" method="spawn_enemigos"]
+[connection signal="timeout" from="SpawnEne" to="Juego/SpawnEnemigo" method="spawn_enemigos"]
