@@ -18,7 +18,7 @@ const escena_puchos = preload("uid://bdf4254vxb1jr")
 const objetos_nivel_1_a = [escena_vinilo, ENCENDEDOR,escena_puchos,escena_disco,escena_agua, PORRA,escena_micro, SPEED, ESPOSAS, PIMIENTA_CONGELA,escena_placa]
 const objetos_nivel_1_b = [escena_vinilo, ENCENDEDOR,escena_puchos,escena_disco,escena_agua, PORRA,escena_micro, SPEED, ESPOSAS, PIMIENTA_CONGELA,escena_placa]
 
-const prob_objetos_normal = [0, 15, 20, 30, 40, 60, 65, 75, 0, 80,90]
+const prob_objetos_normal = [0, 15, 20, 30, 40, 60, 65, 75, 99999999, 80,90]
 const prob_objetos_30 = [5, 15, 20, 30, 40, 60, 65, 70, 75, 80,90]
 #const escena_enemigo = preload("res://Escenas/Maria.tscn")
 func spawn_enemigos():

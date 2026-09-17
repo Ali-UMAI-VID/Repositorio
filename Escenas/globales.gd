@@ -6,7 +6,9 @@ var timer : float = 60
 var vidas : int = 3
 var pucho : bool = false
 var nivel : int = 0
+var nivel_escena : Node2D
 
+var flashbang: bool = false
 var velo_jug : bool = false
-var menos_velo: bool = false
+var menos_velo: bool = true
 var congelado : bool = false
