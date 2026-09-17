@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c381k7e2617d"]
+
+[ext_resource type="Texture2D" uid="uid://d0lfcdjuhy7qo" path="res://Assets/Interfaz/Fondo/Fondo consejos.png" id="1_ckvhx"]
+[ext_resource type="Script" uid="uid://bvxlcrs8kc377" path="res://Escenas/Interfaz/consejos.gd" id="1_m81p3"]
+
+[node name="Consejos" type="Control" unique_id=67406158]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m81p3")
+escena_nivel_path = "res://Escenas/Estado de niveles/Nivel.tscn"
+
+[node name="FondoConsejos" type="TextureRect" parent="." unique_id=528868133]
+layout_mode = 0
+offset_right = 1886.0
+offset_bottom = 1067.0
+texture = ExtResource("1_ckvhx")
+
+[node name="TextosRandom" type="Label" parent="FondoConsejos" unique_id=743310841]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 478.0
+offset_right = 1214.0
+offset_bottom = 822.0
+pivot_offset = Vector2(254, 172)
+theme_override_font_sizes/font_size = 40
+text = "\"Un gran poder conlleva
+una gran responsabilidad\""
+vertical_alignment = 1
+
+[node name="TimerConsejo" type="Timer" parent="." unique_id=1064903724]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="TimerConsejo" to="." method="_on_timer_consejo_timeout"]
