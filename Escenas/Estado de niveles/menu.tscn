@@ -72,6 +72,7 @@ script = ExtResource("1_2fnph")
 sonido_boton = NodePath("BotonEfecto")
 escena_skins_path = "res://Escenas/Estado de niveles/skins.tscn"
 escena_nivel_path = "res://Escenas/Estado de niveles/Nivel.tscn"
+escena_consejos_path = "res://Escenas/Estado de niveles/consejos.tscn"
 PosJugador = NodePath("PosicionJugador")
 BotonJugar = NodePath("JugarSprites")
 BotonTienda = NodePath("TiendaSprites")

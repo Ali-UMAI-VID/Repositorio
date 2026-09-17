@@ -30,7 +30,7 @@ func _process(delta):
 		if 	Input.is_action_pressed("Espacio"):
 			Globales.vidas = 3
 			Globales.score = 60
-			#Globales.nivel = 0
+			Globales.nivel = 0
 			sonido_boton.play()
 			await get_tree().change_scene_to_file(escena_menu_path)
 	if PosJugador.position.y == 747:
