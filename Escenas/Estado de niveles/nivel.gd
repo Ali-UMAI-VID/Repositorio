@@ -6,6 +6,10 @@ extends Node2D
 @onready var flash_animation = $Juego/Flash_animation
 
 func _ready():
+	print("Nivel: " + str(Globales.nivel))
+	print(Globales.nombre_uno)
+	print(Globales.nombre_dos)
+	Globales.timer = 60
 	Globales.nivel_escena = self
 
 func _on_area_muerte_body_entered(body):
@@ -17,7 +21,6 @@ func _process(delta):
 		flash_animation.play("flashes_nivel")
 		await flash_animation.animation_finished
 		Globales.flashbang = false
-	Globales.nivel = 1
 	Globales.timer -= delta
 	if Globales.timer <= 0:
 		print("xd")

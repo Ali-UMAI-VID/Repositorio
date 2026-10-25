@@ -20,7 +20,7 @@ func _process(delta):
 		BotonTienda.frame = 0
 		BotonOpciones.frame = 0
 		BotonSalir.frame = 0
-		if 	Input.is_action_pressed("Espacio"):
+		if 	Input.is_action_just_pressed("Espacio"):
 			sonido_boton.play()
 			get_tree().change_scene_to_file(escena_consejos_path)
 	if PosJugador.position.y == 664.5:
