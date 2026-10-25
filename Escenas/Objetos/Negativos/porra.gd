@@ -3,13 +3,14 @@ var duracion_flas: int = 5
 
 
 func _on_boca_tocada():
+	var clave = str(Globales.sesion_juego) #ordena el numero de score en donde esta
 	Globales.jugador.perder_vida()
 	Globales.flashbang = true
-	Globales.score -= 20
+	Globales.game_data["score_" + clave] -= 20
 	#print("hpalsd")
 	#print(Globales.vidas)
-	if Globales.score < 0:
-		Globales.score = 0
+	if Globales.game_data["score_" + clave] < 0:
+		Globales.game_data["score_"  + clave] = 0
 #	flash()
 
 #func flash():
