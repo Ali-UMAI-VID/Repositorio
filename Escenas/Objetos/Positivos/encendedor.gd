@@ -2,8 +2,7 @@ extends Item
 class_name Encendedor
 
 func _on_boca_tocada():
-	var clave = str(Globales.sesion_juego) #ordena el numero de score en donde esta
-	Globales.game_data["score_" + clave] += 10
+	Globales.score_actual += 10
 	if Globales.pucho == true:
-		Globales.game_data["score_" + clave] += 60
+		Globales.score_actual += 60
 		Globales.pucho = false
