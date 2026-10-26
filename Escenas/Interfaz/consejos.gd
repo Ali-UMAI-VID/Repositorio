@@ -28,7 +28,7 @@ var letras = [
 var indices_letras: Array[int] = [0, 0, 0]
 
 func _ready():
-	Globales.sesion_juego += 1
+	Globales.game_data["sesion_juego"] += 1
 	textos_random.text = textos.pick_random()
 	actualizar_interfaz_letras()
 
@@ -73,15 +73,20 @@ func actualizar_interfaz_letras():
 	if letra_3: letra_3.text = letras[indices_letras[2]]
 
 func confirmar_y_cambiar_escena():
-	Globales.numero_nombre += 1
 	var nombre_completo = letras[indices_letras[0]] + letras[indices_letras[1]] + letras[indices_letras[2]]
-	
-	match Globales.numero_nombre:
-		1: Globales.nombre_uno = nombre_completo
-		2: Globales.nombre_dos = nombre_completo
-		3: Globales.nombre_tres = nombre_completo
-		4: Globales.nombre_cuatro = nombre_completo
-		5: Globales.nombre_cinco = nombre_completo
+
+	Globales.nombre_nuevo = nombre_completo
+
+	if Globales.game_data["sesion_juego"] <= 5:
+		Globales.game_data["numero_nombre"] += 1
+
+		match Globales.game_data["numero_nombre"]:
+		
+			1: Globales.game_data["nombre_1"] = nombre_completo
+			2: Globales.game_data["nombre_2"] = nombre_completo
+			3: Globales.game_data["nombre_3"] = nombre_completo
+			4: Globales.game_data["nombre_4"] = nombre_completo
+			5: Globales.game_data["nombre_5"] = nombre_completo
+
 	Globales.nivel = 1
-	print("Nivel: " + str(Globales.nivel))
 	get_tree().change_scene_to_file(escena_nivel_path)

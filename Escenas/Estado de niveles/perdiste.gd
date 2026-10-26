@@ -22,18 +22,20 @@ var ranking = [1,2,3,4,5]
 var posiciones_y = [70 , 276, 482, 688, 894]
 
 func _ready():
-	print(Globales.game_data["score_1"])
+	pass
+	#print(Globales.game_data["score_1"])
+	#print(Globales.score_actual)
 	#Globales.game_data["score_2"] = 200
 	#Globales.game_data["score_3"] = 1000
 	#actualizar_posicion_score()
 
 func _process(delta):
 
-	score_txt_actual.text = Globales.nombre_uno + ": " + str(Globales.game_data["score_1"])
-	score_txt_2.text = Globales.nombre_dos + ": " + str(Globales.game_data["score_2"])
-	score_txt_3.text = Globales.nombre_tres + ": " + str(Globales.game_data["score_3"])
-	score_txt_4.text = Globales.nombre_cuatro + ": " + str(Globales.game_data["score_4"])
-	score_txt_5.text = Globales.nombre_cinco + ": " + str(Globales.game_data["score_5"])
+	score_txt_actual.text = Globales.game_data["nombre_1"] + ": " + str(Globales.game_data["score_1"])
+	score_txt_2.text = Globales.game_data["nombre_2"] + ": " + str(Globales.game_data["score_2"])
+	score_txt_3.text = Globales.game_data["nombre_3"] + ": " + str(Globales.game_data["score_3"])
+	score_txt_4.text = Globales.game_data["nombre_4"] + ": " + str(Globales.game_data["score_4"])
+	score_txt_5.text = Globales.game_data["nombre_5"] + ": " + str(Globales.game_data["score_5"])
 	actualizar_posicion_score()
 	
 	if PosJugador.position.y == 492:
@@ -44,8 +46,9 @@ func _process(delta):
 		
 		if 	Input.is_action_pressed("Espacio"):
 			Globales.vidas = 3
-			Globales.game_data["score_" + str(Globales.sesion_juego)] = 0
+			Globales.game_data["score_" + str(Globales.game_data["sesion_juego"])] = 0
 			sonido_boton.play()
+			Globales.score_actual = 0
 			get_tree().change_scene_to_file(escena_nivel_path)
 	if PosJugador.position.y == 619.5:
 		BotonRenaudar.frame = 0
@@ -59,6 +62,7 @@ func _process(delta):
 			Globales.vidas = 3
 			Globales.nivel = 0
 			sonido_boton.play()
+			Globales.score_actual = 0
 			await get_tree().change_scene_to_file(escena_menu_path)
 	if PosJugador.position.y == 747:
 		BotonRenaudar.frame = 0

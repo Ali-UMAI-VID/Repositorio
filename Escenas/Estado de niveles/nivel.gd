@@ -7,9 +7,8 @@ extends Node2D
 
 func _ready():
 	print("Nivel: " + str(Globales.nivel))
-	print(Globales.nombre_uno)
-	print(Globales.nombre_dos)
-	Globales.timer = 60
+	print("sesion:"  + str(Globales.game_data["sesion_juego"]))
+	Globales.timer = 30
 	Globales.nivel_escena = self
 
 func _on_area_muerte_body_entered(body):
@@ -23,7 +22,7 @@ func _process(delta):
 		Globales.flashbang = false
 	Globales.timer -= delta
 	if Globales.timer <= 0:
-		print("xd")
+		#print("xd")
 		get_tree().change_scene_to_file(escena_ganaste_path)
 	if Globales.vidas <= 0:
 		get_tree().change_scene_to_file(escena_perdiste_path)

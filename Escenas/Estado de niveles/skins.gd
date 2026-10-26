@@ -13,7 +13,7 @@ extends Control
 func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Mov_derecha"):
-		print(PosJugador.position.x)
+		#print(PosJugador.position.x)
 		if PosJugador.position.x == 972 and PosJugador.position.y == 1000:
 			return
 		PosJugador.position.x += 372
@@ -22,16 +22,16 @@ func _physics_process(delta):
 			return
 		PosJugador.position.x -= 372
 	if Input.is_action_just_pressed("Mov_abajo"):
-		print(PosJugador.position.y)
-		print(PosJugador.position.x)
+		#print(PosJugador.position.y)
+		#print(PosJugador.position.x)
 		if PosJugador.position.y == 795:
 			PosJugador.position.y = 1000
 			PosJugador.position.x = 972
 		PosJugador.position.y += 369
 		
 	if Input.is_action_just_pressed("Mov_arriba"):
-		print(PosJugador.position.y)
-		print(PosJugador.position.x)
+		#print(PosJugador.position.y)
+		#print(PosJugador.position.x)
 		if PosJugador.position.y == 1000:
 			PosJugador.position.y = 795
 			PosJugador.position.x = 972
