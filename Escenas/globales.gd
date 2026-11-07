@@ -12,15 +12,33 @@ var nivel : int = 0
 var nivel_escena : Node2D
 
 var flashbang: bool = false
+var velocidad: int = 400
 var velo_jug : bool = false
-var menos_velo: bool = true
+var menos_velo: bool = false
 var congelado : bool = false
+var velo_normal: bool = false
 
-#var nombre_1: String		= "---"
-#var nombre_2: String		= "---"
-#var nombre_3: String		= "---"
-#var nombre_4: String	= "---"
-#var nombre_5: String	= "---"
+func _physics_process(delta):
+	if velo_jug == true:
+		velocidad = 1000
+		menos_velo = false
+		congelado = false
+		velo_normal == false
+	if menos_velo == true:
+		velocidad = 100
+		velo_jug = false
+		congelado = false
+		velo_normal == true
+	if congelado == true:
+		velocidad = 0
+		velo_jug = false
+		menos_velo = false
+		velo_normal == true
+	if velo_normal == true:
+		velocidad = 400
+		velo_jug = false
+		menos_velo = false
+		congelado = false
 
 #var numero_nombre: int = 0
 var nombre_nuevo: String = "---"

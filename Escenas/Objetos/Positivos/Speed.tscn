@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yqudo"]
 radius = 52.0
 
-[node name="Escena Speed" type="Area2D" unique_id=1239515536 node_paths=PackedStringArray("timer_velo")]
+[node name="Escena Speed" type="Area2D" unique_id=1239515536 node_paths=PackedStringArray("timer_velo") groups=["marihuana"]]
 script = ExtResource("1_sb2tv")
 timer_velo = NodePath("TimerSpeed")
 

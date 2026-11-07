@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyg4c"]
 size = Vector2(56, 113.5)
 
-[node name="Pimienta_congela" type="Area2D" unique_id=427338619 node_paths=PackedStringArray("Timeresposas")]
+[node name="Pimienta_congela" type="Area2D" unique_id=427338619 node_paths=PackedStringArray("Timeresposas") groups=["pimienta"]]
 script = ExtResource("1_7v437")
 Timeresposas = NodePath("CongeladoTimer")
 

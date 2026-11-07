@@ -1,24 +1,51 @@
 extends Control
-@onready var textos_random = $FondoConsejos/TextosRandom
+@onready var textos_random = $EstadoConsejo/TextosRandom
+
 @export_file_path("*.tscn") var escena_nivel_path : String
 @onready var timer_consejo = $TimerConsejo
 @onready var letra_1 = $Letra1
 @onready var letra_2 = $Letra2
 @onready var letra_3 = $Letra3
 @onready var posicion_jugador = $PosicionJugador
+@onready var estado_consejo = $EstadoConsejo
+
 
 var textos = [
-	"¡Cuidado!",
-	"El enemigo está cerca...",
-	"¿Dónde estará?",
-	"Algo no parece estar bien...",
-	"Tenés que encontrarlo."
+	"¡Cuidado con la autoridad!
+
+Qué evitar: Las esposas restan tiempo, 
+la placa policial te quita una vida y 
+50 puntos (con alerta de pantalla roja), 
+y el gas pimienta te congela por completo
+¡Esquívalas a toda velocidad!",
+
+	"Caza los combos de supervivencia
+
+Qué buscar: Agarra discos y vinilos para recuperar vidas.
+Atrapa el cigarrillo para ganar +30 segundos y
+agarralo despues del encendedor para activar puntos extra
+y mantener la partida viva.",
+	
+	"Mide el riesgo en el último segundo
+
+Qué hacer: Cuando el cronómetro entre en zona roja 
+(últimos 10 segundos), la música se acelerará. 
+Arriésgate a cruzar por los ítems de mayor valor 
+(como la botella de agua) para asegurar tu puesto en la tabla.",
+	
+	"Usa los objetos de velocidad con estrategia
+
+Qué aprovechar: Las pastillas duplican tu velocidad de movimiento 
+por 10 segundos, ideal para escapar de emboscadas o alcanzar power-ups 
+lejanos, pero úsalas con cuidado para no estrellarte contra objetos perjudiciales.",
+	
+	"Los vinilos te recuperan dos vidas."
 ]
 
 var letras = [
-	"a", "b", "c", "d", "e", "f", "g", "h", "i", "j",
-	"k", "l", "m", "n", "o", "p", "q", "r", "s",
-	"t", "u", "v", "w", "x", "y", "z",
+	"A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
+	"K", "L", "M", "N", "O", "P", "Q", "R", "S",
+	"T", "U", "V", "W", "X", "Y", "Z",
 	"1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
 	"/", "*", "!", "@", "#", "$", "%", "&", "(", ")",
 	"?", "<", ">", "’", "{", "}"
@@ -29,9 +56,19 @@ var indices_letras: Array[int] = [0, 0, 0]
 
 func _ready():
 	Globales.game_data["sesion_juego"] += 1
-	textos_random.text = textos.pick_random()
-	actualizar_interfaz_letras()
+	if Globales.game_data["sesion_juego"] <= 4:
+		textos_random.text = textos[Globales.game_data["sesion_juego"] - 1]
+		actualizar_interfaz_letras()
 
+func _physics_process(delta):
+	if posicion_jugador.position.x == 100 and posicion_jugador.position.y == 410:
+		estado_consejo.frame = 0
+	if posicion_jugador.position.x == 380 and posicion_jugador.position.y == 410:
+		estado_consejo.frame = 1
+	if posicion_jugador.position.x == 660 and posicion_jugador.position.y == 410:
+		estado_consejo.frame = 2
+	if posicion_jugador.position.y == 650:
+		estado_consejo.frame = 3
 func _unhandled_input(event):
 	# Movimiento de posición
 	if event.is_action_pressed("Mov_derecha") and posicion_jugador.position.y == 410:
@@ -40,8 +77,11 @@ func _unhandled_input(event):
 		posicion_jugador.position.x -= 280
 	elif event.is_action_pressed("Mov_arriba"):
 		posicion_jugador.position.y -= 240
+
 	elif event.is_action_pressed("Mov_abajo"):
 		posicion_jugador.position.y += 240
+		#print(posicion_jugador.position.y)
+		#print(posicion_jugador.position.x)
 
 	# Clampear posición del cursor
 	posicion_jugador.position.y = clamp(posicion_jugador.position.y, 410, 650)

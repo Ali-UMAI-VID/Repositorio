@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ckfh2h50qtpdt" path="res://Escenas/Estado de niveles/ganaste.gd" id="1_4kkfn"]
 [ext_resource type="Texture2D" uid="uid://byh8dyincwnsu" path="res://Assets/Interfaz/Fondo/Fondo GANASTE sin score.png" id="1_xkhw2"]
+[ext_resource type="Texture2D" uid="uid://cudlknht4tnqo" path="res://Assets/Interfaz/Fondo/Estado de partida/Ganaste_menu.png" id="2_6b11n"]
 [ext_resource type="Texture2D" uid="uid://d1h6bbir48wgf" path="res://Assets/Interfaz/botones/RENAUDAR NO.png" id="2_e5ve4"]
+[ext_resource type="Texture2D" uid="uid://cbc4cq1twptve" path="res://Assets/Interfaz/Fondo/Estado de partida/Ganaste_siguiente_nivel.png" id="3_4kkfn"]
 [ext_resource type="Texture2D" uid="uid://cuypqgwkthe3j" path="res://Assets/Interfaz/botones/RENAUDAR SI.png" id="3_l45wv"]
 [ext_resource type="Texture2D" uid="uid://dk2hq5crcprly" path="res://Assets/Interfaz/botones/VOLVER NO.png" id="4_0f3dl"]
 [ext_resource type="Texture2D" uid="uid://dimruaby31jv" path="res://Assets/Interfaz/botones/VOLVER SI.png" id="5_g3si4"]
@@ -12,8 +14,23 @@
 [ext_resource type="Texture2D" uid="uid://112pquhkp1o3" path="res://Assets/Interfaz/botones/salir si.png" id="9_4kkfn"]
 [ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="11_g3si4"]
 [ext_resource type="PackedScene" uid="uid://dgj8an7are67i" path="res://Escenas/vidas.tscn" id="12_wb7pl"]
+[ext_resource type="FontFile" uid="uid://l3vsgpyihkfb" path="res://Assets/Interfaz/Tipografía/Jersey_20/Jersey20-Regular.ttf" id="13_4kkfn"]
 [ext_resource type="AudioStream" uid="uid://coha48li47hog" path="res://Sonidos/Efectos/Interfaz/soniditoQicNiIdea.wav" id="16_gumfd"]
 [ext_resource type="AudioStream" uid="uid://dlnj76kn4q24m" path="res://Sonidos/Musica/Start me up (PantallaTitulo) .mp3" id="17_4kkfn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vq16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6b11n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4kkfn")
+}],
+"loop": 1,
+"name": &"pasaje_jugador",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cj6q3"]
 animations = [{
@@ -88,97 +105,117 @@ BotonMenu = NodePath("VOLVERALMENU")
 BotonOpciones = NodePath("OPCIONES")
 BotonSalir = NodePath("SALIR")
 
+[node name="Animacion_victoria" type="AnimatedSprite2D" parent="." unique_id=247934537]
+sprite_frames = SubResource("SpriteFrames_vq16u")
+animation = &"pasaje_jugador"
+offset = Vector2(960, 540)
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1593142762]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_xkhw2")
 
 [node name="RENAUDAR" type="AnimatedSprite2D" parent="." unique_id=1144120738]
+visible = false
 position = Vector2(1202, 540)
 sprite_frames = SubResource("SpriteFrames_cj6q3")
 animation = &"RENAUDAR"
 
 [node name="VOLVERALMENU" type="AnimatedSprite2D" parent="." unique_id=143567950]
+visible = false
 position = Vector2(1202, 668.5)
 sprite_frames = SubResource("SpriteFrames_oglql")
 animation = &"VOLVER AL MENU"
 
 [node name="OPCIONES" type="AnimatedSprite2D" parent="." unique_id=1938486510]
+visible = false
 position = Vector2(1202, 794)
 sprite_frames = SubResource("SpriteFrames_gumfd")
 animation = &"OPCIONES"
 
 [node name="SALIR" type="AnimatedSprite2D" parent="." unique_id=1055822296]
+visible = false
 position = Vector2(1202, 924)
 sprite_frames = SubResource("SpriteFrames_42sko")
 animation = &"SALIR"
 
 [node name="ScoreTxt5" type="Label" parent="." unique_id=148081362]
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
 layout_mode = 0
-offset_left = 97.0
-offset_top = 894.0
-offset_right = 428.0
-offset_bottom = 1007.0
+offset_left = 756.0
+offset_top = 704.0
+offset_right = 1087.0
+offset_bottom = 817.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_4kkfn")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
 
 [node name="ScoreTxt4" type="Label" parent="." unique_id=1196786908]
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
 layout_mode = 0
-offset_left = 97.0
-offset_top = 688.0
-offset_right = 428.0
-offset_bottom = 801.0
+offset_left = 756.0
+offset_top = 652.0
+offset_right = 1087.0
+offset_bottom = 765.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_4kkfn")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
 
 [node name="ScoreTxt3" type="Label" parent="." unique_id=1573303925]
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
 layout_mode = 0
-offset_left = 97.0
-offset_top = 482.0
-offset_right = 428.0
-offset_bottom = 595.0
+offset_left = 756.0
+offset_top = 600.0
+offset_right = 1087.0
+offset_bottom = 713.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_4kkfn")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
 
 [node name="ScoreTxt2" type="Label" parent="." unique_id=974683543]
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
 layout_mode = 0
-offset_left = 97.0
-offset_top = 276.0
-offset_right = 428.0
-offset_bottom = 389.0
+offset_left = 756.0
+offset_top = 548.0
+offset_right = 1087.0
+offset_bottom = 661.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_4kkfn")
 theme_override_font_sizes/font_size = 40
 text = "0
 "
 
-[node name="ScoreTxtActual" type="Label" parent="." unique_id=2101244588]
+[node name="ScoreTxt1" type="Label" parent="." unique_id=2101244588]
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
 layout_mode = 0
-offset_left = 97.0
-offset_top = 70.0
-offset_right = 428.0
-offset_bottom = 183.0
+offset_left = 756.0
+offset_top = 496.0
+offset_right = 1367.0
+offset_bottom = 609.0
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("13_4kkfn")
 theme_override_font_sizes/font_size = 40
-text = "0
-"
+text = "0"
 
 [node name="PosicionJugador" type="TextureRect" parent="." unique_id=1741491952]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 984.0
-offset_top = 492.0
-offset_right = 1420.0
-offset_bottom = 592.0
+offset_left = 993.0
+offset_top = 907.0
+offset_right = 1429.0
+offset_bottom = 1007.0
 texture = ExtResource("11_g3si4")
 
 [node name="vidas" parent="." unique_id=1405326338 instance=ExtResource("12_wb7pl")]
+visible = false
 position = Vector2(745, 755)
 
 [node name="EfectoBoton" type="AudioStreamPlayer2D" parent="." unique_id=433396375]

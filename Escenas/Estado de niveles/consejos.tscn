@@ -1,10 +1,34 @@
 [gd_scene format=3 uid="uid://c381k7e2617d"]
 
 [ext_resource type="Script" uid="uid://bvxlcrs8kc377" path="res://Escenas/Interfaz/consejos.gd" id="1_m81p3"]
-[ext_resource type="Texture2D" uid="uid://c5jwvgtljt852" path="res://Assets/Interfaz/Fondo/Fondo consejos borrador2.png" id="2_py08c"]
+[ext_resource type="Texture2D" uid="uid://1eir60uvt4tv" path="res://Assets/Interfaz/Fondo/Estado de partida/Consejo/consejo_primera_letra.png" id="2_nsjf5"]
 [ext_resource type="Shader" uid="uid://84cmmgr08ksv" path="res://Escenas/Estado de niveles/letras.gdshader" id="3_37o7d"]
+[ext_resource type="Texture2D" uid="uid://cii7hficyamir" path="res://Assets/Interfaz/Fondo/Estado de partida/Consejo/consejo_segunda_letra.png" id="3_lmoop"]
+[ext_resource type="Texture2D" uid="uid://bbtoiu46yk0j1" path="res://Assets/Interfaz/Fondo/Estado de partida/Consejo/consejo_tercera_letra.png" id="4_3tgki"]
 [ext_resource type="FontFile" uid="uid://eralv4tmjkp1" path="res://Assets/Interfaz/Tipografía/silkscreen/slkscr.ttf" id="4_py08c"]
+[ext_resource type="Texture2D" uid="uid://cw8ox6y1sq2ip" path="res://Assets/Interfaz/Fondo/Estado de partida/Consejo/consejo_comenzar.png" id="5_2kiiu"]
 [ext_resource type="Texture2D" uid="uid://dr3328ejjlshq" path="res://Assets/Interfaz/Posicion del usuario.png" id="5_xlxj7"]
+[ext_resource type="FontFile" uid="uid://l3vsgpyihkfb" path="res://Assets/Interfaz/Tipografía/Jersey_20/Jersey20-Regular.ttf" id="6_3yrg3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vq16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nsjf5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lmoop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3tgki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2kiiu")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vq16u"]
 shader = ExtResource("3_37o7d")
@@ -22,36 +46,39 @@ grow_vertical = 2
 script = ExtResource("1_m81p3")
 escena_nivel_path = "res://Escenas/Estado de niveles/Nivel.tscn"
 
-[node name="FondoConsejos" type="TextureRect" parent="." unique_id=528868133]
-layout_mode = 0
-offset_right = 1886.0
-offset_bottom = 1067.0
-texture = ExtResource("2_py08c")
+[node name="EstadoConsejo" type="AnimatedSprite2D" parent="." unique_id=1080997664]
+sprite_frames = SubResource("SpriteFrames_vq16u")
+offset = Vector2(960, 540)
 
-[node name="TextosRandom" type="Label" parent="FondoConsejos" unique_id=743310841]
-layout_mode = 0
-offset_left = 1058.0
-offset_top = 458.0
-offset_right = 1724.0
-offset_bottom = 802.0
-pivot_offset = Vector2(333, 172)
+[node name="TextosRandom" type="Label" parent="EstadoConsejo" unique_id=743310841]
+offset_left = 964.0
+offset_top = 294.0
+offset_right = 1801.0
+offset_bottom = 791.0
+pivot_offset = Vector2(419, 249)
 theme_override_fonts/font = ExtResource("4_py08c")
-theme_override_font_sizes/font_size = 40
-text = "\"Un gran poder conlleva
-una gran responsabilidad\""
+theme_override_font_sizes/font_size = 32
+text = "¡Cuidado con la autoridad!
+
+Qué evitar: Las esposas restan tiempo, 
+la placa policial te quita una vida y 
+50 puntos (con alerta de pantalla roja), 
+y el gas pimienta te congela por completo
+¡Esquívalas a toda velocidad!\","
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Letra3" type="Label" parent="." unique_id=885237455]
 material = SubResource("ShaderMaterial_vq16u")
 layout_mode = 1
 anchors_preset = -1
-offset_left = 614.0
-offset_top = 363.0
-offset_right = 847.0
-offset_bottom = 566.0
-theme_override_fonts/font = ExtResource("4_py08c")
+offset_left = 576.0
+offset_top = 335.0
+offset_right = 809.0
+offset_bottom = 538.0
+theme_override_fonts/font = ExtResource("6_3yrg3")
 theme_override_font_sizes/font_size = 128
-text = "a"
+text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,27 +86,27 @@ vertical_alignment = 1
 material = SubResource("ShaderMaterial_vq16u")
 layout_mode = 1
 anchors_preset = -1
-offset_left = 326.0
-offset_top = 363.0
-offset_right = 559.0
-offset_bottom = 566.0
-theme_override_fonts/font = ExtResource("4_py08c")
+offset_left = 345.0
+offset_top = 335.0
+offset_right = 578.0
+offset_bottom = 538.0
+theme_override_fonts/font = ExtResource("6_3yrg3")
 theme_override_font_sizes/font_size = 128
-text = "a"
+text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Letra1" type="Label" parent="." unique_id=1690613125]
 material = SubResource("ShaderMaterial_vq16u")
 layout_mode = 1
-offset_left = 40.0
-offset_top = 363.0
-offset_right = 273.0
-offset_bottom = 566.0
+offset_left = 119.0
+offset_top = 335.0
+offset_right = 352.0
+offset_bottom = 538.0
 pivot_offset = Vector2(695, 65)
-theme_override_fonts/font = ExtResource("4_py08c")
+theme_override_fonts/font = ExtResource("6_3yrg3")
 theme_override_font_sizes/font_size = 128
-text = "a"
+text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -88,6 +115,6 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 100.0
 offset_top = 410.0
-offset_right = 223.00034
-offset_bottom = 510.00037
+offset_right = 201.0
+offset_bottom = 510.0
 texture = ExtResource("5_xlxj7")

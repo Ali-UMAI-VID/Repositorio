@@ -5,6 +5,9 @@ extends Node2D
 @export_file_path("*.tscn") var escena_ganaste_path : String
 @onready var flash_animation = $Juego/Flash_animation
 
+@onready var interfaz = $Fondo/Interfaz
+@onready var fondo_de_juego = $"Juego/Fondo de juego"
+
 func _ready():
 	print("Nivel: " + str(Globales.nivel))
 	print("sesion:"  + str(Globales.game_data["sesion_juego"]))
@@ -16,6 +19,13 @@ func _on_area_muerte_body_entered(body):
 		body.queue_free()
 
 func _process(delta):
+	if Globales.nivel == 1:
+		fondo_de_juego.frame = 0
+		interfaz.frame = 0
+	if Globales.nivel == 2:
+		fondo_de_juego.frame = 1
+		interfaz.frame = 1
+	
 	if Globales.flashbang == true and Globales.vidas > 0:
 		flash_animation.play("flashes_nivel")
 		await flash_animation.animation_finished

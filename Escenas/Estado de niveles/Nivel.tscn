@@ -6,30 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://brsm38e1g1g5d" path="res://Assets/Interfaz/Fondo/Fondo de nivel 2.png" id="3_cewml"]
 [ext_resource type="PackedScene" uid="uid://6mfrct2khwgp" path="res://Escenas/Objetos/Positivos/Micro.tscn" id="3_e1c7d"]
 [ext_resource type="Script" uid="uid://44netdbpfh0i" path="res://Escenas/timer_txt.gd" id="4_s50yn"]
-[ext_resource type="Texture2D" uid="uid://djpwed0ukq4r7" path="res://Assets/Interfaz/Interfaz de usuario.png" id="4_ut45a"]
 [ext_resource type="PackedScene" uid="uid://dgj8an7are67i" path="res://Escenas/vidas.tscn" id="5_0b4ry"]
 [ext_resource type="Texture2D" uid="uid://bkvpfj08n0hm6" path="res://Assets/Boca/Boca_pt_arriba.png" id="5_n15ev"]
 [ext_resource type="PackedScene" uid="uid://daox7cx03xwwd" path="res://Escenas/Objetos/Negativos/Placa.tscn" id="7_sxaxo"]
-[ext_resource type="Texture2D" uid="uid://e1ow7oothnhe" path="res://Assets/Objetos/botella pixel art.png" id="8_14vwf"]
-[ext_resource type="Texture2D" uid="uid://cyvtbb6moua1c" path="res://Assets/Objetos/cd pixel art.png" id="9_56211"]
 [ext_resource type="PackedScene" uid="uid://lhy0toald5kc" path="res://Escenas/Objetos/Positivos/Speed.tscn" id="9_whbte"]
-[ext_resource type="Texture2D" uid="uid://fq2t4iwjbh6x" path="res://Assets/Objetos/esposas pixel art.png" id="10_n15ev"]
 [ext_resource type="Script" uid="uid://vymeyk5uc2dl" path="res://Escenas/spawn_enemigo.gd" id="10_sxaxo"]
 [ext_resource type="PackedScene" uid="uid://cmg1qdfm2gn71" path="res://Escenas/Objetos/Positivos/vinilo.tscn" id="11_jaqgx"]
-[ext_resource type="Texture2D" uid="uid://brpltbuk2vtqt" path="res://Assets/Objetos/gas pimienta pixel art.png" id="11_otbvg"]
 [ext_resource type="PackedScene" uid="uid://bsteskqnltmjo" path="res://Escenas/Objetos/Positivos/disco.tscn" id="12_fbggv"]
-[ext_resource type="Texture2D" uid="uid://dbfjxjdtebs52" path="res://Assets/Objetos/marihuana pixel art.png" id="12_i8txy"]
 [ext_resource type="AudioStream" uid="uid://bldlio3gub6yg" path="res://Sonidos/Musica/Gimme Shelter (Nivel 3 Final) .mp3" id="12_whbte"]
 [ext_resource type="PackedScene" uid="uid://bdf4254vxb1jr" path="res://Escenas/Objetos/Positivos/puchos.tscn" id="13_2ddwb"]
-[ext_resource type="Texture2D" uid="uid://chihcwditm8e2" path="res://Assets/Objetos/microfono pixel art 1.png" id="13_xdm2d"]
 [ext_resource type="PackedScene" uid="uid://dpwbpx2qs5fp1" path="res://Escenas/Objetos/Positivos/agua.tscn" id="14_2ddwb"]
-[ext_resource type="Texture2D" uid="uid://5t2ppreyfv51" path="res://Assets/Objetos/placa pixel art.png" id="15_m7la7"]
 [ext_resource type="PackedScene" uid="uid://d02stx26n8evi" path="res://Escenas/Objetos/Negativos/esposas.tscn" id="15_pnrdi"]
-[ext_resource type="Texture2D" uid="uid://1uif747hh4x4" path="res://Assets/Objetos/Porra.png" id="16_n15ev"]
-[ext_resource type="Texture2D" uid="uid://cq2nf4f5jnady" path="res://Assets/Objetos/puchito.png" id="16_oldwl"]
-[ext_resource type="Texture2D" uid="uid://dc41dctestyeb" path="res://Assets/Objetos/vinilo pixel art.png" id="17_nbw62"]
-[ext_resource type="Texture2D" uid="uid://bmsuiwdgwhax6" path="res://Assets/Objetos/encendedor pixel art.png" id="18_i4fq6"]
+[ext_resource type="Texture2D" uid="uid://bv8k5u28gmpei" path="res://Assets/Interfaz/Fondo/Nivel/Marco.png" id="18_n15ev"]
+[ext_resource type="Texture2D" uid="uid://otgilyyh4m2i" path="res://Assets/Interfaz/Fondo/Nivel/Marco nv 2.png" id="19_2vbw1"]
 [ext_resource type="Script" uid="uid://css8vjek1isaj" path="res://Escenas/Estado de niveles/score_txt.gd" id="20_n15ev"]
+[ext_resource type="FontFile" uid="uid://l3vsgpyihkfb" path="res://Assets/Interfaz/Tipografía/Jersey_20/Jersey20-Regular.ttf" id="20_vv0mf"]
 [ext_resource type="PackedScene" uid="uid://d03y56mb8s2u4" path="res://Escenas/Objetos/Positivos/encendedor.tscn" id="22_56211"]
 [ext_resource type="PackedScene" uid="uid://bu7rs1ug43q42" path="res://Escenas/Objetos/Negativos/pimienta_congela.tscn" id="23_n15ev"]
 [ext_resource type="PackedScene" uid="uid://cd2l5b6s68q7u" path="res://Escenas/Objetos/Negativos/porra.tscn" id="29_56211"]
@@ -138,7 +129,21 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxvt1"]
-size = Vector2(1111, 62.5)
+size = Vector2(1427, 62.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpy8e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_n15ev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_2vbw1")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Nivel" type="Node2D" unique_id=582695337]
 script = ExtResource("1_of526")
@@ -155,7 +160,7 @@ sprite_frames = SubResource("SpriteFrames_vq16u")
 script = ExtResource("10_sxaxo")
 
 [node name="Jugador" parent="Juego" unique_id=421185857 groups=["jugador"] instance=ExtResource("2_ctkg4")]
-position = Vector2(860, 900)
+position = Vector2(1229, 900)
 
 [node name="BocaPtArriba2" type="Sprite2D" parent="Juego/Jugador" unique_id=2129333803]
 position = Vector2(0, -23.000002)
@@ -179,7 +184,7 @@ color = Color(0, 0, 1, 1)
 position = Vector2(882, 1296)
 
 [node name="Encendedor" parent="Juego" unique_id=1629147257 instance=ExtResource("22_56211")]
-position = Vector2(1522, 1112)
+position = Vector2(649, 1136)
 
 [node name="Pimienta_congela" parent="Juego" unique_id=427338619 instance=ExtResource("23_n15ev")]
 position = Vector2(1365, 1233)
@@ -191,7 +196,7 @@ position = Vector2(1034, 1316)
 position = Vector2(788, 1225)
 
 [node name="Placa" parent="Juego" unique_id=2028840203 instance=ExtResource("7_sxaxo")]
-position = Vector2(1168, 1331)
+position = Vector2(1240, 1334)
 
 [node name="Escena Speed" parent="Juego" unique_id=1991450299 instance=ExtResource("9_whbte")]
 position = Vector2(583, 1320)
@@ -211,97 +216,45 @@ position = Vector2(1267, 1172)
 [node name="AreaMuerte" type="Area2D" parent="Juego" unique_id=1075150899]
 
 [node name="ColisionMuerte" type="CollisionShape2D" parent="Juego/AreaMuerte" unique_id=1406830617]
-position = Vector2(934.5, 1390)
+position = Vector2(776.5, 1390)
 shape = SubResource("RectangleShape2D_hxvt1")
 
 [node name="Fondo" type="CanvasLayer" parent="." unique_id=2020750910]
 
-[node name="Interfaz" type="TextureRect" parent="Fondo" unique_id=1907627147]
-offset_right = 1920.0
-offset_bottom = 1080.0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("4_ut45a")
-stretch_mode = 6
-metadata/_edit_use_anchors_ = true
+[node name="Interfaz" type="AnimatedSprite2D" parent="Fondo" unique_id=1759920994]
+sprite_frames = SubResource("SpriteFrames_vpy8e")
+offset = Vector2(960, 540)
 
 [node name="vidas" parent="Fondo" unique_id=1405326338 instance=ExtResource("5_0b4ry")]
-position = Vector2(1662, 626)
+position = Vector2(1635, 339)
 
 [node name="ScoreTxt" type="Label" parent="Fondo" unique_id=395672995]
-offset_left = 1533.0
-offset_top = 90.0
-offset_right = 1661.0
-offset_bottom = 145.0
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
+offset_left = 1522.0
+offset_top = 524.0
+offset_right = 1733.0
+offset_bottom = 653.0
+pivot_offset = Vector2(106, 65)
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 40
-text = "Score: "
+theme_override_fonts/font = ExtResource("20_vv0mf")
+theme_override_font_sizes/font_size = 128
+text = "120"
+horizontal_alignment = 1
 script = ExtResource("20_n15ev")
 
 [node name="TimerTxt" type="Label" parent="Fondo" unique_id=1993622272]
-offset_left = 1590.0
-offset_top = 486.0
-offset_right = 1659.0
-offset_bottom = 569.0
+modulate = Color(0.8980392, 0.5764706, 0.019607844, 1)
+offset_left = 1576.0
+offset_top = 52.0
+offset_right = 1693.0
+offset_bottom = 181.0
+pivot_offset = Vector2(59, 65)
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 60
+theme_override_fonts/font = ExtResource("20_vv0mf")
+theme_override_font_sizes/font_size = 128
 text = "60"
+horizontal_alignment = 1
 script = ExtResource("4_s50yn")
-
-[node name="BotellaPixelArt" type="Sprite2D" parent="Fondo" unique_id=1861261075]
-position = Vector2(1848.0001, 307)
-scale = Vector2(0.52272725, 0.5227273)
-texture = ExtResource("8_14vwf")
-
-[node name="CdPixelArt" type="Sprite2D" parent="Fondo" unique_id=1473580964]
-position = Vector2(1785.0001, 291)
-scale = Vector2(0.40184054, 0.40184048)
-texture = ExtResource("9_56211")
-
-[node name="EsposasPixelArt" type="Sprite2D" parent="Fondo" unique_id=1130124191]
-position = Vector2(1463, 289.00003)
-scale = Vector2(0.4792944, 0.4792944)
-texture = ExtResource("10_n15ev")
-
-[node name="GasPimientaPixelArt" type="Sprite2D" parent="Fondo" unique_id=1194887660]
-position = Vector2(1539.0001, 289)
-scale = Vector2(0.3971238, 0.39712393)
-texture = ExtResource("11_otbvg")
-
-[node name="MarihuanaPixelArt" type="Sprite2D" parent="Fondo" unique_id=726797316]
-position = Vector2(1807, 357.00003)
-scale = Vector2(0.4287326, 0.42873257)
-texture = ExtResource("12_i8txy")
-
-[node name="PildoraPixelArt" type="Sprite2D" parent="Fondo" unique_id=602497507]
-position = Vector2(1478, 352)
-scale = Vector2(0.77008396, 0.77008396)
-texture = ExtResource("16_n15ev")
-
-[node name="PlacaPixelArt" type="Sprite2D" parent="Fondo" unique_id=160237360]
-position = Vector2(1538, 369)
-scale = Vector2(0.2382622, 0.2382622)
-texture = ExtResource("15_m7la7")
-
-[node name="ViniloPixelArt" type="Sprite2D" parent="Fondo" unique_id=1735513655]
-position = Vector2(1703.9999, 292)
-scale = Vector2(0.3269232, 0.3269232)
-texture = ExtResource("17_nbw62")
-
-[node name="EncendedorPixelArt2" type="Sprite2D" parent="Fondo" unique_id=2021071131]
-position = Vector2(1671, 338)
-scale = Vector2(0.35568994, 0.35568997)
-texture = ExtResource("18_i4fq6")
-
-[node name="MicrofonoPixelArt1" type="Sprite2D" parent="Fondo" unique_id=1422110560]
-position = Vector2(1747, 357.99997)
-scale = Vector2(0.3482143, 0.3482143)
-texture = ExtResource("13_xdm2d")
-
-[node name="Puchito" type="Sprite2D" parent="Fondo/MicrofonoPixelArt1" unique_id=1540468294]
-position = Vector2(-123.48779, 22.974365)
-scale = Vector2(0.14493181, 0.14493181)
-texture = ExtResource("16_oldwl")
 
 [node name="PantallaMuerte" type="CanvasLayer" parent="." unique_id=2093990462]
 

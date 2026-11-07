@@ -4,19 +4,20 @@ extends Control
 @export_file_path("*.tscn") var escena_menu_path : String
 @export_file_path("*.tscn") var escena_nivel_path : String
 @export var PosJugador : TextureRect
+@onready var animacion_victoria = $Animacion_victoria
 
 @export var BotonRenaudar : AnimatedSprite2D
 @export var BotonMenu : AnimatedSprite2D
 @export var BotonOpciones : AnimatedSprite2D
 @export var BotonSalir : AnimatedSprite2D
 
-@onready var score_txt_actual = $ScoreTxtActual
+@onready var score_txt_1 = $ScoreTxt1
 @onready var score_txt_2 = $ScoreTxt2
 @onready var score_txt_3 = $ScoreTxt3
 @onready var score_txt_4 = $ScoreTxt4
 @onready var score_txt_5 = $ScoreTxt5
 var ranking = [1,2,3,4,5]
-var posiciones_y = [70 , 276, 482, 688, 894]
+var posiciones_y = [496 , 548, 600, 652, 704]
 
 
 func _ready():
@@ -39,18 +40,20 @@ func _ready():
 	actualizar_posicion_score()
 
 func _process(delta):
-	score_txt_actual.text = Globales.game_data["nombre_1"] + ": " + str(Globales.game_data["score_1"])
-	score_txt_2.text = Globales.game_data["nombre_2"] + ": " + str(Globales.game_data["score_2"])
-	score_txt_3.text = Globales.game_data["nombre_3"] + ": " + str(Globales.game_data["score_3"])
-	score_txt_4.text = Globales.game_data["nombre_4"] + ": " + str(Globales.game_data["score_4"])
-	score_txt_5.text = Globales.game_data["nombre_5"] + ": " + str(Globales.game_data["score_5"])
+	score_txt_1.text = Globales.game_data["nombre_1"] + "                                                 " + str(Globales.game_data["score_1"])
+	score_txt_2.text = Globales.game_data["nombre_2"] + "                                                 " + str(Globales.game_data["score_2"])
+	score_txt_3.text = Globales.game_data["nombre_3"] + "                                                 " + str(Globales.game_data["score_3"])
+	score_txt_4.text = Globales.game_data["nombre_4"] + "                                                 " + str(Globales.game_data["score_4"])
+	score_txt_5.text = Globales.game_data["nombre_5"] + "                                                 " + str(Globales.game_data["score_5"])
 	actualizar_posicion_score()
 	
-	if PosJugador.position.y == 492:
-		BotonRenaudar.frame = 1
-		BotonMenu.frame = 0
-		BotonOpciones.frame = 0
-		BotonSalir.frame = 0
+	
+	
+	if PosJugador.position.x == 993:
+		animacion_victoria.frame = 1
+		#BotonMenu.frame = 0
+		#BotonOpciones.frame = 0
+		#BotonSalir.frame = 0
 		if 	Input.is_action_pressed("Espacio"):
 			Globales.vidas = 3
 			Globales.nivel += 1
@@ -58,40 +61,43 @@ func _process(delta):
 			sonido_boton.play()
 			Globales.score_actual = 0
 			get_tree().change_scene_to_file(escena_nivel_path)
-	if PosJugador.position.y == 619.5:
-		BotonRenaudar.frame = 0
-		BotonMenu.frame = 1
-		BotonOpciones.frame = 0
-		BotonSalir.frame = 0
+			
+	if PosJugador.position.x == 438:
+		animacion_victoria.frame = 0
+		#BotonMenu.frame = 1
+		#BotonOpciones.frame = 0
+		#BotonSalir.frame = 0
 		if 	Input.is_action_pressed("Espacio"):
 			Globales.vidas = 3
 			Globales.nivel = 0
 			sonido_boton.play()
 			Globales.score_actual = 0
 			await get_tree().change_scene_to_file(escena_menu_path)
-	if PosJugador.position.y == 747:
-		BotonRenaudar.frame = 0
-		BotonMenu.frame = 0
-		BotonOpciones.frame = 1
-		BotonSalir.frame = 0
-	if PosJugador.position.y == 874.5:
-		BotonRenaudar.frame = 0
-		BotonMenu.frame = 0
-		BotonOpciones.frame = 0
-		BotonSalir.frame = 1
-		if 	Input.is_action_pressed("Espacio"):
-			sonido_boton.play()
-			get_tree().quit()
+	#if PosJugador.position.y == 747:
+	#	BotonRenaudar.frame = 0
+	#	BotonMenu.frame = 0
+	#	BotonOpciones.frame = 1
+	#	BotonSalir.frame = 0
+		
+		
+	#if PosJugador.position.y == 874.5:
+	#	BotonRenaudar.frame = 0
+	#	BotonMenu.frame = 0
+	#	BotonOpciones.frame = 0
+	#	BotonSalir.frame = 1
+	#	if 	Input.is_action_pressed("Espacio"):
+	#		sonido_boton.play()
+	#		get_tree().quit()
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("Mov_abajo"):
-		PosJugador.position.y += 127.5
+	if Input.is_action_just_pressed("Mov_derecha"):
+		PosJugador.position.x = 993.0
 		#print (PosJugador.position.y)
-	if Input.is_action_just_pressed("Mov_arriba"):
-		PosJugador.position.y -= 127.5
+	if Input.is_action_just_pressed("Mov_izquierda"):
+		PosJugador.position.x = 438.0
 		#print(PosJugador.position)
 	#PosJugador.position.x = clamp(PosJugador.position.x,317,555)
-	PosJugador.position.y = clamp(PosJugador.position.y,492,874.5)
+	#PosJugador.position.y = clamp(PosJugador.position.y,492,874.5)
 	
 func actualizar_posicion_score():
 	var scores = [
@@ -103,7 +109,7 @@ func actualizar_posicion_score():
 	]
 
 	var labels = [
-		score_txt_actual,
+		score_txt_1,
 		score_txt_2,
 		score_txt_3,
 		score_txt_4,
